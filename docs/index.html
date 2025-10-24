@@ -1,56 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QuickChoice • Pick a Selection</title>
-  <meta name="description" content="Smart Vending, Made Simple. Choose a selection." />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuickChoice • Pick a Selection</title>
+    <meta
+      name="description"
+      content="Smart Vending, Made Simple. Choose a selection."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="vm vm--tall" aria-label="QuickChoice navigation selections">
+      <div class="vm__stack">
+        <div class="vm__cabinet vm__cabinet--matte">
+          <!-- Lightbox brand sign -->
+          <header class="vm__sign">
+            <div class="vm__sign-inner">
+              <h1 class="vm__brand">QuickChoice</h1>
+              <p class="vm__motto">Smart Vending, Made Simple.</p>
+            </div>
+          </header>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <main class="machine" aria-label="QuickChoice navigation selections">
-    <!-- Top chrome marquee like the photo -->
-    <div class="marquee">
-      <div class="chrome chrome--top"></div>
-      <div class="marquee__label">
-        <span class="script">QuickChoice</span>
-        <small class="marquee__small">Smart Vending, Made Simple.</small>
+          <div class="vm__center">
+            <!-- TICKER -->
+            <div class="vm__ticker" id="ticker">
+              <span class="vm__ticker-text" id="tickerText"
+                >Please make a selection</span
+              >
+            </div>
+
+            <!-- Button Grid -->
+            <section class="vm__panel">
+              <nav class="vm__grid vm__grid--2col" id="vending-grid">
+                <a class="vm__btn vm__btn--cream" href="home.html"
+                  ><span>Home</span></a
+                >
+                <a class="vm__btn vm__btn--teal" href="about.html"
+                  ><span>About&nbsp;Us</span></a
+                >
+                <a class="vm__btn vm__btn--red" href="services.html"
+                  ><span>Services</span></a
+                >
+                <a class="vm__btn vm__btn--green" href="industries.html"
+                  ><span>Industries</span></a
+                >
+                <a class="vm__btn vm__btn--navy" href="coverage.html"
+                  ><span>Coverage</span></a
+                >
+                <a class="vm__btn vm__btn--orange" href="testimonials.html"
+                  ><span>Testimonials</span></a
+                >
+                <a class="vm__btn vm__btn--sand" href="partnership.html"
+                  ><span>Partnership</span></a
+                >
+                <a class="vm__btn vm__btn--blue" href="contact.html"
+                  ><span>Contact</span></a
+                >
+              </nav>
+            </section>
+          </div>
+
+          <!-- Lower Section -->
+          <!-- Lower Section (2 images replacing CSS blocks) -->
+          <div class="vm__lower">
+            <img
+              src="../public/web-assets/snackslot.png"
+              alt="Bill slot"
+              class="vm__bill-img"
+            />
+            <img
+              src="../public/web-assets/coinslot.png"
+              alt="Coin slot"
+              class="vm__coin-img"
+            />
+          </div>
+        </div>
+        <!-- /vm__cabinet -->
+
+        <!-- Vending machine legs (perfectly aligned) -->
+        <figure class="vm__below">
+          <img
+            src="/public/web-assets/leg-shadow.png"
+            alt="Vending machine legs"
+            loading="lazy"
+          />
+        </figure>
       </div>
-      <div class="chrome chrome--right"></div>
-    </div>
+      <!-- /vm__stack -->
+    </main>
 
-    <!-- Display window with glass + slots -->
-    <section class="window">
-      <div class="shelf">
-        <!-- Grid of glass-encased “labels” -->
-        <nav class="grid" id="vending-grid">
-          <a class="slot" href="home.html" data-label="Home"><span class="label label--cream">Home</span></a>
-          <a class="slot" href="about.html" data-label="About Us"><span class="label label--teal">About&nbsp;Us</span></a>
-          <a class="slot" href="services.html" data-label="Services"><span class="label label--red">Services</span></a>
-          <a class="slot" href="industries.html" data-label="Industries"><span class="label label--green">Industries</span></a>
-          <a class="slot" href="coverage.html" data-label="Coverage"><span class="label label--navy">Coverage</span></a>
-          <a class="slot" href="testimonials.html" data-label="Testimonials"><span class="label label--orange">Testimonials</span></a>
-          <a class="slot" href="partnership.html" data-label="Partnership"><span class="label label--sand">Partnership</span></a>
-          <a class="slot" href="contact.html" data-label="Contact"><span class="label label--blue">Contact</span></a>
-        </nav>
-      </div>
-
-      <!-- Price/lever row for flavor (purely visual) -->
-      <div class="lever-row" aria-hidden="true">
-        <div class="price">15¢</div><div class="price">20¢</div><div class="price">25¢</div>
-        <div class="price">30¢</div><div class="price">40¢</div><div class="price">50¢</div>
-        <div class="lever"></div><div class="lever"></div><div class="lever"></div>
-        <div class="lever"></div><div class="lever"></div><div class="lever"></div>
-      </div>
-    </section>
-
-    <!-- Bottom kick panel -->
-    <div class="kick"></div>
-  </main>
-
-  <script src="./app.js"></script>
-</body>
+    <script src="./app.js" defer></script>
+<script src="./detectmode.js" defer></script>
+  </body>
 </html>
