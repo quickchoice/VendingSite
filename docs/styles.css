@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'DS-Digital';
   src: url('./font/ds_digital/DS-DIGI.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+
 }
 
 /* =================== QuickChoice Vending Nav =================== */
@@ -163,7 +162,7 @@ body {
   white-space:nowrap;
   will-change:transform;
   color:#ff3b3b;
-  font-weight:900;
+
   letter-spacing:.04em;
   line-height:40px;
   font-size:35px;
