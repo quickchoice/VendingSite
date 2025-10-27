@@ -5,40 +5,81 @@
 <title>QuickChoice • Contact</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="otherstyles.css" />
-    <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+<link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
 </head>
 <body class="page">
 <header class="topbar">
-<a class="topbar__back" href="./index.html">← Selections</a>
-<div class="topbar__brand">QuickChoice</div>
-<a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
+  <a class="topbar__back" href="./index.html">← Selections</a>
+  <div class="topbar__brand">QuickChoice</div>
+  <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-
 <section class="hero hero--blue">
-<h1 class="script hero__script">Let’s Talk</h1>
-<p class="hero__sub">Tell us about your space and we’ll recommend the best setup.</p>
+  <h1 class="script hero__script">Let’s Talk</h1>
+  <p class="hero__sub">Tell us about your space and we’ll recommend the best setup.</p>
 </section>
 
+<section class="section contact-section">
+  <div class="contact-bg">
+    <img src="./public/web-assets/chat.png" alt="Background snacks" class="contact-bg-img">
+  </div>
 
-<section class="section">
-<!-- Replace DAVID_EMAIL with David's actual email -->
-<form class="form" method="get" action="mailto:dante.smith@quickchoice.net,DAVID_EMAIL?subject=QuickChoice%20Inquiry" enctype="text/plain">
-<input class="input" name="Name" placeholder="Your name" required>
-<input class="input" name="Company" placeholder="Company / Location">
-<input class="input" type="email" name="Email" placeholder="Your email" required>
-<input class="input" name="City" placeholder="City, State">
-<textarea class="textarea" name="Message" placeholder="What are you looking for? Vending, micro‑market, or office snacks?" required></textarea>
-<button class="btn-pill btn-submit" type="submit">Send Email</button>
-<p class="small">Prefer a backend? We can wire Formspree or your API later.</p>
-</form>
+  <div class="form-card glass">
+    <div class="form-card__header">
+      <span class="form-pill">QuickChoice Contact</span>
+      <p class="form-sub">We typically reply within one business day.</p>
+    </div>
+
+    <!-- Replace DAVID_EMAIL -->
+    <form class="qform" method="get"
+          action="mailto:dante.smith@quickchoice.net,DAVID_EMAIL?subject=QuickChoice%20Inquiry"
+          enctype="text/plain">
+      <div class="qgrid">
+        <label class="qfield">
+          <span class="qlabel">Your name</span>
+          <input class="qinput" name="Name" placeholder="Jane Doe" required>
+        </label>
+
+        <label class="qfield">
+          <span class="qlabel">Company / Location</span>
+          <input class="qinput" name="Company" placeholder="Acme HQ • 4th Floor">
+        </label>
+
+        <label class="qfield">
+          <span class="qlabel">Your email</span>
+          <input class="qinput" type="email" name="Email" placeholder="you@company.com" required>
+        </label>
+
+        <label class="qfield">
+          <span class="qlabel">City, State</span>
+          <input class="qinput" name="City" placeholder="Charleston, SC">
+        </label>
+
+        <label class="qfield qfield--full">
+          <span class="qlabel">What are you looking for?</span>
+          <textarea class="qtextarea" name="Message"
+            placeholder="Vending, micro-market, or office snacks? How many people? Any favorites to stock?"
+            required></textarea>
+        </label>
+      </div>
+
+      <div class="qactions">
+        <button class="btn-pill" type="submit">Send Email</button>
+        <span class="qnote small">Prefer a backend? We can wire Formspree or your API later.</span>
+      </div>
+    </form>
+  </div>
 </section>
-
 
 <footer class="footer">
-<div>© <span id="y"></span> QuickChoice Vending</div>
-<nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
+  <div>© <span id="y"></span> QuickChoice Vending</div>
+  <nav class="footer__nav">
+    <a href="./home.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
 </footer>
+
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
