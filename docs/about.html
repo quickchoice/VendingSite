@@ -5,45 +5,87 @@
 <title>QuickChoice • About</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="otherstyles.css" />
+<link rel="icon" type="image/png" href="/docs/public/web-assets/favicon.png">
+
+<!-- Minimal, flat team styles (plays nice with your tokens) -->
+<style>
+  .team-grid{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:980px){.team-grid{grid-template-columns:1fr}}
+  .profile-card{
+    display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;
+    padding:18px;border-radius:var(--r-xl);
+    background:#fffdf7;border:1.5px solid var(--rim);box-shadow:none;
+  }
+  .profile-card .headshot{
+    width:96px;height:96px;border-radius:18px;object-fit:cover;
+    border:1px solid var(--line);background:#fff;display:block;
+  }
+  .profile-card h3{margin:0 0 4px;color:var(--brand-blue);font-size:20px}
+  .profile-meta{margin:0 0 8px;font-weight:700;color:#294256}
+  .profile-card p{margin:0;color:var(--muted);line-height:1.55}
+  /* Optional: widen bios a touch on large screens */
+  @media (min-width:1280px){ .profile-card{grid-template-columns:110px 1fr} .profile-card .headshot{width:110px;height:110px} }
+</style>
 </head>
+
 <body class="page">
 <header class="topbar">
-<a class="topbar__back" href="./index.html">← Selections</a>
-<div class="topbar__brand">QuickChoice</div>
-<a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
+  <a class="topbar__back" href="./index.html">← Selections</a>
+  <div class="topbar__brand">QuickChoice</div>
+  <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-
 <section class="hero hero--blue">
-<h1 class="script hero__script">Brand & Vibe</h1>
-<p class="hero__sub">Modern convenience with a subtle classic touch — clean lines, rounded shapes, and matte finishes.</p>
+  <h1 class="script hero__script">Brand & Vibe</h1>
+  <p class="hero__sub">Modern convenience with a subtle classic touch — clean lines, rounded shapes, and matte finishes.</p>
 </section>
-
 
 <section class="section">
-<h2 class="section__title">About Us</h2>
-<div class="cards-3">
-<div class="rounded-card">
-<h3>Dante Smith — CEO</h3>
-<p>Born and raised in Charleston, Dante attended Porter‑Gaud, then The Citadel (B.S. Finance; Division I football). He spent five years in NYC in investment banking, credit research, and consulting. His understanding of how businesses run sparked his entrepreneurial path. <em>(Bio to be continued.)</em></p>
-</div>
-<div class="rounded-card">
-<h3>David — Sales & Operations</h3>
-<p>Charleston native and Porter‑Gaud alum, David graduated from the University of South Carolina. After experiences in medical sales and a London stint exploring commercial real estate, he returned to build QuickChoice with a lifelong friend — focusing on growth through sales and operations.</p>
-</div>
-<div class="rounded-card">
-<h3>Our Approach</h3>
-<p>Partnership‑first: transparent reporting, clear restock schedules, and rotating selections based on real demand.</p>
-</div>
-</div>
+  <h2 class="section__title">About Us</h2>
+
+  <!-- Team with headshots -->
+  <div class="team-grid">
+    <!-- Dante -->
+    <article class="profile-card">
+      <img class="headshot" src="/docs/public/web-assets/dante.jpeg" alt="Headshot of Dante Smith">
+      <div>
+        <h3>Dante Smith</h3>
+        <p class="profile-meta">Chief Executive Officer</p>
+        <p>Born and raised in Charleston, Dante attended Porter-Gaud, then The Citadel (B.S. Finance; Division I football). He spent five years in NYC in investment banking, credit research, and consulting. His understanding of how businesses run sparked his entrepreneurial path. <em>(Bio to be continued.)</em></p>
+      </div>
+    </article>
+
+    <!-- David -->
+    <article class="profile-card">
+      <img class="headshot" src="/docs/public/web-assets/davidhs.png" alt="Headshot of David">
+      <div>
+        <h3>David</h3>
+        <p class="profile-meta">Sales & Operations</p>
+        <p>Charleston native and Porter-Gaud alum, David graduated from the University of South Carolina. After experiences in medical sales and a London stint exploring commercial real estate, he returned to build QuickChoice with a lifelong friend — focusing on growth through sales and operations.</p>
+      </div>
+    </article>
+
+    <!-- Our approach (no headshot, still matches) -->
+    <article class="profile-card">
+      <img class="headshot" src="/docs/public/web-assets/favicon.png" alt="QuickChoice logo mark">
+      <div>
+        <h3>Our Approach</h3>
+        <p class="profile-meta">Partnership-First</p>
+        <p>Transparent reporting, clear restock schedules, and rotating selections based on real demand. We favor dependable service, fast response times, and long-term relationships.</p>
+      </div>
+    </article>
+  </div>
 </section>
 
-
 <footer class="footer">
-<div>© <span id="y"></span> QuickChoice Vending</div>
-<nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
+  <div>© <span id="y"></span> QuickChoice Vending</div>
+  <nav class="footer__nav">
+    <a href="./home.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
 </footer>
+
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
-

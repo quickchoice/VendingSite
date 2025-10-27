@@ -5,44 +5,78 @@
 <title>QuickChoice • Partnership</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="otherstyles.css" />
+<link rel="icon" type="image/png" href="/docs/public/web-assets/favicon.png">
 </head>
 <body class="page">
 <header class="topbar">
-<a class="topbar__back" href="./index.html">← Selections</a>
-<div class="topbar__brand">QuickChoice</div>
-<a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
+  <a class="topbar__back" href="./index.html">← Selections</a>
+  <div class="topbar__brand">QuickChoice</div>
+  <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-
 <section class="hero hero--blue">
-<h1 class="script hero__script">More Than a Vendor — a Partner</h1>
-<p class="hero__sub">Transparent sales, profit‑share options, and restocking on your schedule.</p>
+  <h1 class="script hero__script">More Than a Vendor — a Partner</h1>
+  <p class="hero__sub">Transparent sales, profit-share options, and restocking on your schedule.</p>
 </section>
 
+<!-- Mascot + Vertical Partnership Benefits -->
+<section class="section section--mascot">
+  <div class="mascot-wrap">
+    <!-- Mascot image (left, never stacks) -->
+    <img
+      src="/docs/public/web-assets/shakehands.png"
+      alt="QuickChoice mascot presenting partnership benefits"
+      class="mascot-img"
+    />
 
-<section class="section">
-<div class="feature">
-<div class="feature__media photo" role="img" aria-label="Graphic: simple sales dashboard overview"></div>
-<div class="feature__body">
-<ul class="bullets">
-<li><strong>Profit Share:</strong> earn a percentage of sales (monthly reporting)</li>
-<li><strong>Restock Days:</strong> choose preferred days/times; we adapt to your flow</li>
-<li><strong>Maintenance:</strong> zero‑cost install and ongoing service included</li>
-<li><strong>Requests:</strong> personal item requests welcomed and rotated in</li>
-</ul>
-</div>
-</div>
-<div class="cta-row" style="margin-top:18px">
-<a class="btn-pill" href="./contact.html">Start a Partnership</a>
-<a class="btn-ghost" href="./testimonials.html">See Testimonials</a>
-</div>
+    <!-- Vertical stack of benefit cards (right) -->
+    <div class="mascot-content">
+      <h2 class="section__title">Partnership Benefits</h2>
+
+      <div class="cards-vertical">
+        <div class="rounded-card">
+          <h3>Profit Share</h3>
+          <p>Earn a clear percentage of sales with monthly reporting. We’ll walk you through the numbers and optimize selection for your audience.</p>
+        </div>
+
+        <div class="rounded-card">
+          <h3>Restock Days</h3>
+          <p>Choose preferred days and times; we match your building’s flow to reduce disruption and keep inventory fresh.</p>
+        </div>
+
+        <div class="rounded-card">
+          <h3>Maintenance Included</h3>
+          <p>Zero-cost install and ongoing service. Hardware, cashless readers, and updates are handled by our team.</p>
+        </div>
+
+        <div class="rounded-card">
+          <h3>Requests Welcome</h3>
+          <p>Staff can request items anytime. We rotate in new products based on real demand and remove slow movers.</p>
+        </div>
+
+        <div class="rounded-card">
+          <h3>Transparent Reporting</h3>
+          <p>Simple monthly summaries with SKUs sold, uptime, and service logs—so you always know what’s working.</p>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:18px">
+        <a class="btn-pill" href="./contact.html">Start a Partnership</a>
+        <a class="btn-ghost" href="./testimonials.html">See Testimonials</a>
+      </div>
+    </div>
+  </div>
 </section>
-
 
 <footer class="footer">
-<div>© <span id="y"></span> QuickChoice Vending</div>
-<nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
+  <div>© <span id="y"></span> QuickChoice Vending</div>
+  <nav class="footer__nav">
+    <a href="./home.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
 </footer>
+
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>

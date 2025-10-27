@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'DS-Digital';
-  src: url('../font/ds_digital/DS-DIGI.TTF') format('truetype');
+  src: url('./font/ds_digital/DS-DIGI.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -35,7 +35,7 @@ body {
   margin: 0;
 
   /* background image only (no gradient) */
-  background-image: url("../public/web-assets/office.png");
+  background-image: url("/docs/public/web-assets/office.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -382,9 +382,9 @@ body {
     --base-font: 15px;
   }
    body {
-    background-image: url("../public/web-assets/office-phone.png");
+    background-image: url("/docs/public/web-assets/office-phone.png");
     background-position: calc(50% + 7px) center;
-     background-size: 133%;
+
   }
   
 }
@@ -400,8 +400,8 @@ body {
   }
 
    body {
-    background-image: url("../public/web-assets/office-phone.png");
-     background-size: 129%;
+    background-image: url("/docs/public/web-assets/office-phone.png");
+     background-size: 100%;
        background-position: calc(50% + 15px) calc(50% + 19px);
        background-color:gray;
   }
