@@ -101,6 +101,8 @@
   requestAnimationFrame(raf);
 })();
 
+
+
 /* ===== Fit the vending machine to the viewport (no scroll, centered) ===== */
 (function () {
   const root  = document.documentElement;
