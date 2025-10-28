@@ -1,2 +1,104 @@
 /* =================== QuickChoice • coverage.css =================== */
+
+/* Mild spacing tighten */
 .section{ padding-top:24px; }
+
+/* ---------- PHOTO ROW: 1 row of 4 on desktop ---------- */
+@media (min-width: 980px){
+  .operate-grid{
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 230px;
+    align-items: center;
+    justify-items: center;
+    gap: 14px;
+  }
+  .op-frame{
+    height: 230px; width: 100%;
+    border-radius: 22px;
+  }
+  .pill-header[data-region="sc"]{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    justify-self: start;
+    z-index: 2;
+    margin: 8px 0 0 10px;
+    position: relative;
+  }
+  .pill-header[data-region="ny"]{
+    grid-column: 3 / span 2;
+    grid-row: 1;
+    justify-self: start;
+    z-index: 2;
+    margin: 8px 0 0 10px;
+    position: relative;
+  }
+}
+
+/* ---------- MAP CARDS ---------- */
+.map-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+@media (min-width: 980px){
+  .map-grid{
+    grid-template-columns: 1fr 1fr; /* two maps side-by-side on desktop */
+  }
+}
+
+.map-card{
+  border-radius: 22px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--lift);
+  overflow: hidden;
+}
+
+/* header row */
+.map-card__head{
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px 6px;
+}
+.map-chip{
+  display: inline-block;
+  font-weight: 800;
+  color: #1a4c74;
+  background: linear-gradient(180deg, #fff9ec, #ffe7c1);
+  border: 1.5px solid var(--rim);
+  border-radius: var(--r-pill);
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+.map-title{
+  font-size: 18px; color:#0c2c41;
+}
+
+.map-figure{
+  margin: 0;
+  padding: 10px 12px 14px;
+}
+
+.map-figure img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: block;
+}
+
+/* footer meta */
+.map-meta{
+  display:flex; gap:8px; flex-wrap:wrap;
+  padding: 8px 14px 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.dot-sep{ opacity:.6 }
+
+/* CTA row beneath maps */
+.map-cta{
+  display:flex; gap:12px; justify-content:center; margin-top:16px;
+  flex-wrap:wrap;
+}

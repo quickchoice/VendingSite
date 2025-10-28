@@ -20,9 +20,11 @@
   <p class="hero__sub">Charleston Tri-County • NYC Metro — with partners nationwide.</p>
 </section>
 
+<!-- Photo row (desktop = 1 row of 4) -->
 <section class="section">
   <div class="centered-narrow">
-    <div class="operate-grid" role="group" aria-label="Images: Charleston — Pineapple Fountain & Ravenel Bridge; New York — Manhattan Bridge & Midtown Skyline.">
+    <div class="operate-grid" role="group"
+         aria-label="Images: Charleston — Pineapple Fountain & Ravenel Bridge; New York — Statue of Liberty & NYC Skyline.">
       <h3 class="pill-header" data-region="sc">South Carolina</h3>
       <div class="op-frame"><img src="./public/web-assets/pineapple-charleston.jpg" alt="Pineapple Fountain"></div>
       <div class="op-frame"><img src="./public/web-assets/arthur-bridge.jpg" alt="Ravenel Bridge"></div>
@@ -36,6 +38,57 @@
       <span class="pill">Charleston, SC — Tri-County area</span>
       <span class="pill">New York, NY — Metropolitan area</span>
       <span class="pill">Nationwide partnerships — ask us</span>
+    </div>
+  </div>
+</section>
+
+<!-- Service Area Maps -->
+<section class="section">
+  <div class="centered-narrow">
+    <h2 class="section__title">Service Area Maps</h2>
+
+    <div class="map-grid">
+      <!-- SC Map -->
+      <article class="map-card glass">
+        <header class="map-card__head">
+          <span class="map-chip">South Carolina</span>
+          <strong class="map-title">Charleston Tri-County</strong>
+        </header>
+        <figure class="map-figure">
+          <!-- Replace with your real file -->
+          <img src="./public/web-assets/tri-country.png"
+               alt="Map of Charleston Tri-County service area">
+        </figure>
+        <footer class="map-meta">
+          <span>Primary: Charleston • North Charleston • Mount Pleasant</span>
+          <span class="dot-sep">•</span>
+          <span>Surrounding partners available</span>
+        </footer>
+      </article>
+
+      <!-- NYC Map -->
+      <article class="map-card glass">
+        <header class="map-card__head">
+          <span class="map-chip">New York</span>
+          <strong class="map-title">NYC Metro</strong>
+        </header>
+        <figure class="map-figure">
+          <!-- Replace with your real file -->
+          <img src="./public/web-assets/metro.png"
+               alt="Map of NYC Metro service area">
+        </figure>
+        <footer class="map-meta">
+          <span>Primary: Manhattan • Brooklyn • Queens</span>
+          <span class="dot-sep">•</span>
+          <span>Extended: Bronx • Staten Island</span>
+        </footer>
+      </article>
+    </div>
+
+    <!-- Optional CTA strip -->
+    <div class="map-cta">
+      <a class="btn-pill" href="./contact.html">Confirm Your Address</a>
+      <a class="btn-ghost" href="./partnership.html">Partner With Us</a>
     </div>
   </div>
 </section>
