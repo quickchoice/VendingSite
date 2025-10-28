@@ -1,91 +1,152 @@
 <html lang="en">
+<head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Services</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="otherstyles.css" />
-    <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+<link rel="stylesheet" href="general.css" />
+<link rel="stylesheet" href="services.css" />
+<link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
 </head>
 <body class="page">
 <header class="topbar">
-<a class="topbar__back" href="./index.html">← Selections</a>
-<div class="topbar__brand">QuickChoice</div>
-<a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
+  <a class="topbar__back" href="./index.html">← Selections</a>
+  <div class="topbar__brand">QuickChoice</div>
+  <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-
 <section class="hero hero--cream">
-<h1 class="script hero__script">Tailored to Your Location</h1>
-<p class="hero__sub">Pick a setup that fits your team — and your space.</p>
+  <h1 class="script hero__script">Tailored to Your Location</h1>
+  <p class="hero__sub">Pick a setup that fits your team — and your space.</p>
 </section>
 
+<!-- Business & Revenue Model (expanded) -->
+<section class="section">
+  <div class="centered-narrow model-band glass">
+    <div class="model-flex">
+      <div class="model-col">
+        <h3>What We Provide (No Cost to You)</h3>
+        <ul>
+          <li>Vending machine, cashless readers, and software setup.</li>
+          <li>Inventory sourcing and restocking (rotation based on demand).</li>
+          <li>Maintenance, uptime tracking, and service response.</li>
+        </ul>
+      </div>
+      <div class="model-col">
+        <h3>How You Earn</h3>
+        <ul>
+          <li>We receive product sales.</li>
+          <li>After expenses (restocking, insurance), you receive a negotiated share of <strong>net profit</strong>.</li>
+          <li>Clear monthly reporting and SKU-level transparency.</li>
+        </ul>
+        <div style="margin-top:8px">
+          <a class="btn-pill" href="./contact.html">Please call to discuss</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="sets-us-apart">
-<h2 class="section__title">What Sets Us Apart</h2>
-<div class="cards-3">
-<div class="rounded-card"><h3>Innovation</h3><p>Young, fresh, and convenient — mobile‑first flows, quick reorders, and transparent reporting.</p></div>
-<div class="rounded-card"><h3>Service</h3><p>Fast restocks and proactive maintenance so you don’t have to chase support.</p></div>
-<div class="rounded-card"><h3>Selection</h3><p>We rotate in what your people actually buy — from better‑for‑you to crowd favorites.</p></div>
-</div>
+  <h2 class="section__title">What Sets Us Apart</h2>
+  <div class="cards-3">
+    <div class="rounded-card"><h3>Innovation</h3><p>Mobile-first flows, tap-to-pay, simple reorders, transparent reporting.</p></div>
+    <div class="rounded-card"><h3>Service</h3><p>Fast restocks and proactive maintenance so you never have to chase support.</p></div>
+    <div class="rounded-card"><h3>Selection</h3><p>Rotations guided by real purchases — better-for-you plus crowd favorites.</p></div>
+  </div>
 </section>
-
 
 <section class="section" id="vending">
-<h2 class="section__title">Vending</h2>
-<div class="feature">
-<div class="feature__media photo" role="img" aria-label="Photo: modern snack & drink machines with card readers"></div>
-<div class="feature__body">
-<ul class="bullets">
-<li>Quick checkout from personal phones (QR / web pay) and touchless readers.</li>
-<li>Cashless by default — tap, wallet, or card with simple receipts.</li>
-<li>Reliable hardware and responsive service for minimal downtime.</li>
-</ul>
-</div>
-</div>
-</section>
+  <h2 class="section__title">Vending</h2>
+  <div class="feature">
+    <div class="feature__media photo">
+      <img src="./public/web-assets/machine-vending.jpg" alt="Modern snack & drink machines with card readers" />
+    </div>
+    <div class="feature__body">
+      <ul class="bullets">
+        <li>Quick checkout (QR / web pay) and touchless card readers.</li>
+        <li>Cashless by default — tap, wallet, or card with receipts.</li>
+        <li>Reliable hardware and responsive service for minimal downtime.</li>
+      </ul>
+    </div>
+  </div>
 
+  <!-- Snack examples (replace images with your exact list) -->
+  <div class="centered-narrow" style="margin-top:14px">
+    <div class="snack-grid">
+      <div class="snack"><img src="./public/web-assets/snacks/chips.png" alt="Chips"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/proteinbar.png" alt="Protein Bar"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/sparkling.png" alt="Sparkling Water"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/jerky.png" alt="Jerky"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/cookies.png" alt="Cookies"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/energy.png" alt="Energy Drink"></div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="markets">
-<h2 class="section__title">Micro‑Markets</h2>
-<div class="feature">
-<div class="feature__media photo" role="img" aria-label="Photo: open coolers, shelves, and a self-checkout tablet"></div>
-<div class="feature__body">
-<ul class="bullets">
-<li>Fresh options with open‑shelf browsing</li>
-<li>Self‑checkout kiosk with cashless payment</li>
-<li>Perfect for 75+ people locations</li>
-</ul>
-</div>
-</div>
+  <h2 class="section__title">Micro-Markets</h2>
+  <div class="feature">
+    <div class="feature__media photo">
+      <img src="./public/web-assets/machine-market.jpg" alt="Open coolers, shelves, and a self-checkout tablet">
+    </div>
+    <div class="feature__body">
+      <ul class="bullets">
+        <li>Fresh options with open-shelf browsing.</li>
+        <li>Self-checkout kiosk with cashless payment.</li>
+        <li>Ideal for locations with 75+ people.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="centered-narrow" style="margin-top:14px">
+    <div class="snack-grid">
+      <div class="snack"><img src="./public/web-assets/snacks/fresh-salad.png" alt="Fresh Salad"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/yogurt.png" alt="Yogurt"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/fruitcup.png" alt="Fruit Cup"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/kombucha.png" alt="Kombucha"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/iced-coffee.png" alt="Iced Coffee"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/grainbowl.png" alt="Grain Bowl"></div>
+    </div>
+  </div>
 </section>
-
 
 <section class="section" id="pantry">
-<h2 class="section__title">Office Snacks & Drinks</h2>
-<div class="feature">
-<div class="feature__media photo" role="img" aria-label="Photo: breakroom counter with snack baskets and sparkling water fridge"></div>
-<div class="feature__body">
-<ul class="bullets">
-<li>Rotating curated assortments (healthy & popular favorites)</li>
-<li>We manage ordering, stocking, and presentation</li>
-<li>Optional stipend or free‑vend programs</li>
-</ul>
-</div>
-</div>
+  <h2 class="section__title">Office Snacks & Drinks</h2>
+  <div class="feature">
+    <div class="feature__media photo">
+      <img src="./public/web-assets/machine-office.jpg" alt="Breakroom counter with snack baskets and sparkling water fridge">
+    </div>
+    <div class="feature__body">
+      <ul class="bullets">
+        <li>Rotating curated assortments (healthy + popular favorites).</li>
+        <li>We manage ordering, stocking, and presentation.</li>
+        <li>Optional stipend or free-vend programs.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="centered-narrow" style="margin-top:14px">
+    <div class="snack-grid">
+      <div class="snack"><img src="./public/web-assets/snacks/nuts.png" alt="Nuts"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/granola.png" alt="Granola"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/seltzer.png" alt="Seltzer"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/chocolate.png" alt="Chocolate"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/pretzels.png" alt="Pretzels"></div>
+      <div class="snack"><img src="./public/web-assets/snacks/tea.png" alt="Tea"></div>
+    </div>
+  </div>
 </section>
-
 
 <section class="section section--soft">
-<div class="cta-row">
-<a class="btn-pill" href="./contact.html">Request Install</a>
-<a class="btn-ghost" href="./partnership.html">Partner With Us</a>
-</div>
+  <div class="centered-narrow" style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
+    <a class="btn-pill" href="./contact.html">Request Install</a>
+    <a class="btn-ghost" href="./partnership.html">Partner With Us</a>
+    <a class="btn-pill" href="./contact.html">Please call to discuss</a>
+  </div>
 </section>
 
-
 <footer class="footer">
-<div>© <span id="y"></span> QuickChoice Vending</div>
-<nav class="footer__nav"><a href="./home.html">Home</a><a href="./about.html">About</a><a href="./contact.html">Contact</a></nav>
+  <div>© <span id="y"></span> QuickChoice Vending</div>
+  <nav class="footer__nav"><a href="./home.html">Home</a><a href="./about.html">About</a><a href="./contact.html">Contact</a></nav>
 </footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>

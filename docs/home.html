@@ -4,22 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="otherstyles.css" />
+<link rel="stylesheet" href="general.css" />
 <link rel="stylesheet" href="home.css" />
 <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
-<style>
-/* ===== GLOBAL FLAT BACKGROUND FIX ===== */
-body.page {
-  margin: 0;
-  color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  line-height: 1.55;
-  background: #f4f7fa !important; /* flat neutral tone */
-}
-.section--soft {
-  background: none !important; /* remove cream/blue gradient bleed */
-}
-</style>
 </head>
 
 <body class="page">
@@ -29,7 +16,7 @@ body.page {
   <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-<section  class="hero hero--cream" style="background:none;">
+<section class="hero hero--cream">
   <h1 class="script hero__script">Smart Vending, Made Simple.</h1>
   <p class="hero__sub">Modern machines that prioritize convenience — cashless, customizable, and maintained for you.</p>
   <div class="hero__actions">
@@ -38,53 +25,53 @@ body.page {
   </div>
 </section>
 
-<!-- Mascot + What We Do -->
-<section class="section section--mascot">
-  <div class="mascot-wrap">
-    <img src="./public/web-assets/vendinglean.png"
-         alt="QuickChoice mascot beside vending machine"
-         class="mascot-img">
-
-    <div class="mascot-content">
-      <h2 class="section__title">What We Do</h2>
-      <div class="cards-vertical">
-        <a class="rounded-card" href="./services.html#vending">
-          <h3>Vending</h3>
-          <p>Tap-to-pay from personal phones, touchless readers for peace of mind, and dependable, fast service.</p>
-        </a>
-        <a class="rounded-card" href="./services.html#markets">
-          <h3>Micro-Markets</h3>
-          <p>Self-checkout coolers & shelves for fresh options.</p>
-        </a>
-        <a class="rounded-card" href="./services.html#pantry">
-          <h3>Office Snacks & Drinks</h3>
-          <p>Curated rotations to keep inventory stocked.</p>
-        </a>
+<!-- Business/Revenue model banner (concise; full detail on Services) -->
+<section class="section">
+  <div class="centered-narrow model-band glass">
+    <div class="model-flex">
+      <div class="model-col">
+        <h3>How It Works</h3>
+        <ul>
+          <li><strong>We provide</strong> the machine, inventory, and restocking <strong>at no cost</strong> to you.</li>
+          <li>We source and maintain hardware and cashless readers.</li>
+          <li>Your team enjoys a curated, rotating selection.</li>
+        </ul>
+      </div>
+      <div class="model-col">
+        <h3>Revenue Model</h3>
+        <ul>
+          <li>QuickChoice receives product sales.</li>
+          <li>After expenses (restocking, insurance), <strong>you receive a negotiated share</strong> of net profit.</li>
+        </ul>
+        <div style="margin-top:8px">
+          <a class="btn-pill" href="./contact.html">Please call to discuss</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Where We Operate -->
-<section class="section section--flat">
-  <h2 class="section__title">Where We Operate</h2>
-  <p>Local roots in <strong>Charleston (Tri-County)</strong> with an expanding footprint in <strong>NYC (Metro)</strong>.</p>
-
-  <div class="operate-grid" role="group"
-       aria-label="Images: Charleston — Pineapple Fountain & Ravenel Bridge; New York — Manhattan Bridge & Midtown Skyline.">
-    <h3 class="pill-header" data-region="sc">South Carolina</h3>
-    <div class="op-frame"><img src="./public/web-assets/pineapple-charleston.jpg" alt="Pineapple Fountain"></div>
-    <div class="op-frame"><img src="./public/web-assets/arthur-bridge.jpg" alt="Ravenel Bridge"></div>
-
-    <h3 class="pill-header" data-region="ny">New York</h3>
-    <div class="op-frame"><img src="./public/web-assets/liberty.jpg" alt="Statue of Liberty"></div>
-    <div class="op-frame"><img src="./public/web-assets/skyline.jpg" alt="NYC Skyline"></div>
-  </div>
-
-  <div class="pill-row" style="margin-top:12px">
-    <span class="pill">Charleston, SC — Tri-County area</span>
-    <span class="pill">New York, NY — Metropolitan area</span>
-    <span class="pill">Nationwide partnerships — ask us</span>
+<!-- Mascot + What We Do -->
+<section class="section section--mascot">
+  <div class="mascot-wrap">
+    <img src="./public/web-assets/vendinglean.png" alt="QuickChoice mascot beside vending machine" class="mascot-img">
+    <div class="mascot-content">
+      <h2 class="section__title">What We Do</h2>
+      <div class="cards-vertical">
+        <a class="rounded-card" href="./services.html#vending">
+          <h3>Vending</h3>
+          <p>Tap-to-pay from phones, touchless readers, dependable service.</p>
+        </a>
+        <a class="rounded-card" href="./services.html#markets">
+          <h3>Micro-Markets</h3>
+          <p>Open coolers & shelves with self-checkout.</p>
+        </a>
+        <a class="rounded-card" href="./services.html#pantry">
+          <h3>Office Snacks & Drinks</h3>
+          <p>Curated rotations and freshness maintained by us.</p>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -97,8 +84,6 @@ body.page {
   </nav>
 </footer>
 
-<script>
-document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Partnership</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="otherstyles.css" />
+<link rel="stylesheet" href="general.css" />
 <link rel="stylesheet" href="partnership.css" />
 <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
 </head>
@@ -20,52 +20,27 @@
   <p class="hero__sub">Transparent sales, profit-share options, and restocking on your schedule.</p>
 </section>
 
-<!-- Mascot + Vertical Partnership Benefits -->
-<section class="section section--mascot">
-  <div class="mascot-wrap">
-    <!-- Mascot image (left, never stacks) -->
-    <img
-      src="./public/web-assets/shakehands.png"
-      alt="QuickChoice mascot presenting partnership benefits"
-      class="mascot-img"
-    />
+<section class="section">
+  <div class="centered-narrow ring">
+    <!-- benefit cards around -->
+    <div class="rounded-card"><h3>Profit Share</h3><p>Earn a negotiated share of monthly net profit with clear reporting.</p></div>
+    <div class="rounded-card"><h3>Restock Days</h3><p>Choose preferred days and times to match your building’s flow.</p></div>
 
-    <!-- Vertical stack of benefit cards (right) -->
-    <div class="mascot-content">
-      <h2 class="section__title">Partnership Benefits</h2>
-
-      <div class="cards-vertical">
-        <div class="rounded-card">
-          <h3>Profit Share</h3>
-          <p>Earn a clear percentage of sales with monthly reporting. We’ll walk you through the numbers and optimize selection for your audience.</p>
-        </div>
-
-        <div class="rounded-card">
-          <h3>Restock Days</h3>
-          <p>Choose preferred days and times; we match your building’s flow to reduce disruption and keep inventory fresh.</p>
-        </div>
-
-        <div class="rounded-card">
-          <h3>Maintenance Included</h3>
-          <p>Zero-cost install and ongoing service. Hardware, cashless readers, and updates are handled by our team.</p>
-        </div>
-
-        <div class="rounded-card">
-          <h3>Requests Welcome</h3>
-          <p>Staff can request items anytime. We rotate in new products based on real demand and remove slow movers.</p>
-        </div>
-
-        <div class="rounded-card">
-          <h3>Transparent Reporting</h3>
-          <p>Simple monthly summaries with SKUs sold, uptime, and service logs—so you always know what’s working.</p>
-        </div>
-      </div>
-
-      <div class="cta-row" style="margin-top:18px">
-        <a class="btn-pill" href="./contact.html">Start a Partnership</a>
-        <a class="btn-ghost" href="./testimonials.html">See Testimonials</a>
-      </div>
+    <!-- Center vending element -->
+    <div class="ring__center">
+      <!-- Use your vending/mascot image to add the vending element -->
+      <img src="./public/web-assets/shakehands.png" alt="QuickChoice vending element" style="max-width:420px; width:100%; height:auto;">
     </div>
+
+    <div class="rounded-card"><h3>Maintenance Included</h3><p>Zero-cost install and service. Hardware, readers, updates handled by us.</p></div>
+    <div class="rounded-card"><h3>Requests Welcome</h3><p>Staff can request items anytime; we rotate in what people actually buy.</p></div>
+    <div class="rounded-card"><h3>Transparent Reporting</h3><p>SKU-level summaries, uptime, and service logs every month.</p></div>
+    <div class="rounded-card"><h3>Simple Communication</h3><p>Direct line and fast responses to keep things easy.</p></div>
+  </div>
+
+  <div class="centered-narrow" style="margin-top:14px; text-align:center">
+    <a class="btn-pill" href="./contact.html">Start a Partnership</a>
+    <a class="btn-ghost" href="./testimonials.html" style="margin-left:8px">See Testimonials</a>
   </div>
 </section>
 

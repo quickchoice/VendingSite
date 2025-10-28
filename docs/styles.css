@@ -200,9 +200,9 @@ body {
 /* Phones: shrink more, smaller ticker */
 @media (max-aspect-ratio: 9/10){
   :root{
-    --fit-margin: 102px;
+    --fit-margin: 20px;
     --fit-scale-mult: 0.95;
-  --fit-nudge-y: 130px;
+  --fit-nudge-y: 75px;
   }
   body{
     background-image:url("./public/web-assets/office-phone.png");

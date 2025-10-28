@@ -1,0 +1,198 @@
+/* =================== QuickChoice • General Stylesheet (shared across content pages) ===================
+   Load this on: home.html, about.html, services.html, industries.html, coverage.html, partnership.html, testimonials.html, contact.html
+   Do NOT load on index.html (vending machine page uses styles.css / index.css).
+*/
+
+/* ========= Design tokens ========= */
+:root{
+  --brand-blue:#1a4c74;
+  --ink:#0f2233;
+  --muted:#5a6a79;
+  --line:#d7e2ec;
+
+  --bg-1:#eef2f5; --bg-2:#f4f7fa; --bg-3:#eef3f8;
+  --rim:#a84e3b;
+
+  --r-xl:28px; --r-lg:20px; --r-md:14px; --r-sm:10px; --r-pill:999px;
+  --lift:0 12px 30px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.10);
+
+  --hero-cream-1:#f6fafc; --hero-cream-2:#f3f8fc;
+  --hero-blue-1:#eaf1f7;  --hero-blue-2:#dfe9f4;
+
+  /* unified “glass” look to bridge retro index → modern subpages */
+  --glass-bg:#ffffffcc;
+  --glass-border:#e8edf3;
+}
+
+/* ========= Base ========= */
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+body.page{
+  margin:0; color:var(--ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  line-height:1.55;
+  background:linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+}
+img{ max-width:100%; height:auto; display:block; }
+.script{ font-family: Allura, "Playfair Display", serif; letter-spacing:.02em; }
+.h-serif{ font-family: "Playfair Display", serif; }
+.small{ font-size:.925rem; color:var(--muted); }
+
+/* ========= Topbar ========= */
+.topbar{
+  position:sticky; top:0; z-index:15;
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px;
+  padding:10px 16px; /* reduced */
+  background:linear-gradient(180deg,#274b66,#1f3e57);
+  border-bottom:1px solid rgba(0,0,0,.35);
+}
+.topbar__back{ color:#fff; text-decoration:none; font-weight:700; opacity:.92; }
+.topbar__brand{
+  justify-self:center; font-weight:800; color:var(--brand-blue);
+  background:linear-gradient(180deg,#f6fafc,#e9eff5);
+  border:1px solid #a3b1be; border-radius:12px; padding:6px 12px;
+  text-shadow:0 1px 0 #fff;
+}
+.topbar__cta{
+  justify-self:end; text-decoration:none; font-weight:800; color:var(--brand-blue);
+  background:linear-gradient(180deg,#ffffff,#f4f8fb);
+  border:1px solid var(--brand-blue); border-radius:var(--r-pill);
+  padding:8px 14px; box-shadow:var(--lift);
+}
+
+/* ========= Hero (reduced top space) ========= */
+.hero{ padding:40px 18px 24px; text-align:center; } /* was 56px top */
+.hero--cream{ background:linear-gradient(180deg,var(--hero-cream-1), var(--hero-cream-2)); }
+.hero--blue{  background:linear-gradient(180deg,var(--hero-blue-1), var(--hero-blue-2)); }
+.hero__script{ font-size:48px; margin:0 0 6px; color:var(--brand-blue); text-shadow:0 1px 0 #ffffffaa; }
+.hero__sub{ margin:0 auto; max-width:860px; color:#0c2c41; }
+.hero__actions{ margin-top:12px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+/* ========= Sections ========= */
+.section{ padding:30px 18px; } /* reduced */
+.section--soft{ background:linear-gradient(180deg,#f7fbff,#edf5fb); }
+.section__title{ font-family:"Playfair Display",serif; font-size:26px; margin:0 0 14px; color:#0c2c41; }
+
+/* ========= Utilities & glass ========= */
+.glass{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.centered-narrow{ max-width:1100px; margin:0 auto; }
+.pill{ display:inline-block; padding:8px 12px; border-radius:var(--r-pill); background:#fff; border:1px solid var(--line); color:#294256; }
+.pill-row{ display:flex; gap:10px; flex-wrap:wrap; }
+
+/* ========= Buttons ========= */
+.btn-pill{
+  display:inline-block; text-decoration:none; font-weight:800; color:#1a4c74;
+  background:linear-gradient(180deg,#fff9ec,#ffe7c1);
+  border:1.5px solid var(--rim); border-radius:var(--r-pill);
+  padding:12px 18px; box-shadow:var(--lift);
+}
+.btn-ghost{
+  display:inline-block; text-decoration:none; font-weight:800; color:var(--brand-blue);
+  background:linear-gradient(180deg,#ffffff,#f4f9ff);
+  border:1px solid var(--brand-blue); border-radius:var(--r-pill);
+  padding:10px 16px;
+}
+
+/* ========= Cards ========= */
+.rounded-card{
+  padding:16px; border-radius:var(--r-xl);
+  background:linear-gradient(180deg,#fff9ec,#fdecd2);
+  border:1.5px solid var(--rim); box-shadow:var(--lift);
+}
+.cards-3{ display:grid; gap:14px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media (max-width:980px){ .cards-3{ grid-template-columns:1fr; } }
+
+/* ========= Footer ========= */
+.footer{
+  margin-top:30px; padding:16px; border-top:1px solid var(--line); text-align:center;
+  background:#ffffffcc; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+.footer__nav{ display:inline-flex; gap:12px; margin-left:8px; }
+.footer__nav a{ color:var(--brand-blue); text-decoration:none; font-weight:600; }
+
+/* ========= Shared components we’ll reuse ========= */
+
+/* Business / Revenue model band (used on Home & Services) */
+.model-band{
+  margin:10px auto 0;
+  border-radius:24px;
+  padding:18px;
+}
+.model-flex{
+  display:grid; gap:14px;
+  grid-template-columns: 1.1fr 1fr;
+  align-items:start;
+}
+@media (max-width:900px){ .model-flex{ grid-template-columns:1fr; } }
+.model-col h3{ margin:0 0 8px; font-size:20px; color:#0c2c41; }
+.model-col ul{ margin:0; padding-left:18px; }
+.model-col li{ margin-bottom:6px; }
+
+/* Snack gallery (used on Services) */
+.snack-grid{
+  display:grid; gap:12px;
+  grid-template-columns:repeat(6, minmax(0,1fr));
+}
+@media (max-width:1100px){ .snack-grid{ grid-template-columns:repeat(4,1fr); } }
+@media (max-width:720px){ .snack-grid{ grid-template-columns:repeat(3,1fr); } }
+.snack{
+  border-radius:16px; overflow:hidden;
+  background:#fff; border:1px solid var(--line);
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+.snack img{ width:100%; height:100%; aspect-ratio:1/1; object-fit:cover; }
+
+/* Two-column feature layout (Services sections) */
+.feature{ display:grid; gap:16px; grid-template-columns: 1.1fr 1fr; align-items:start; }
+@media (max-width:980px){ .feature{ grid-template-columns:1fr; } }
+.feature__media.photo{
+  border-radius:20px; border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f5f9ff);
+  min-height:200px;
+}
+.bullets{ margin:0; padding-left:18px; }
+.bullets li{ margin-bottom:8px; }
+
+/* Operate / Coverage grid (moved to coverage page) */
+.operate-grid{ display:grid; gap:14px; grid-template-columns:repeat(2,1fr); align-items:start; margin-top:10px; }
+.pill-header{
+  grid-column:1 / -1; justify-self:center; margin:6px 0 0;
+  font-size:16px; font-weight:800; color:#1a4c74;
+  background:linear-gradient(180deg,#fff9ec,#ffe7c1);
+  border:1.5px solid var(--rim); border-radius:var(--r-pill); padding:8px 14px; box-shadow:var(--lift); white-space:nowrap;
+}
+.op-frame{ position:relative; border-radius:22px; border:1.5px solid var(--rim); background:#fff; overflow:hidden; height:230px; box-shadow:var(--lift);}
+.op-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+@media (max-width:980px){ .op-frame{ height:180px; } }
+@media (min-width:980px){
+  .operate-grid{
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:auto 230px;
+    align-items:center; justify-items:center;
+  }
+}
+
+/* Partnership layout helper (center art with ring of cards) */
+.ring{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  grid-auto-rows:minmax(120px, auto);
+  align-items:stretch;
+}
+.ring__center{
+  grid-column:2/4; grid-row:1/3;
+  display:grid; place-items:center;
+  border-radius:24px; border:1px solid var(--line);
+  background:#fff;
+  box-shadow:var(--lift);
+  padding:10px;
+}
+@media (max-width:980px){
+  .ring{ grid-template-columns:1fr; }
+  .ring__center{ grid-column:auto; grid-row:auto; }
+}

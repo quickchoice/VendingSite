@@ -4,34 +4,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Coverage</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="otherstyles.css" />
-    <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+<link rel="stylesheet" href="general.css" />
+<link rel="stylesheet" href="coverage.css" />
+<link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
 </head>
 <body class="page">
 <header class="topbar">
-<a class="topbar__back" href="./index.html">← Selections</a>
-<div class="topbar__brand">QuickChoice</div>
-<a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
+  <a class="topbar__back" href="./index.html">← Selections</a>
+  <div class="topbar__brand">QuickChoice</div>
+  <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-
 <section class="hero hero--cream">
-<h1 class="script hero__script">Coverage</h1>
-<p class="hero__sub">Charleston Tri‑County • NYC Metro — with partners nationwide.</p>
+  <h1 class="script hero__script">Coverage</h1>
+  <p class="hero__sub">Charleston Tri-County • NYC Metro — with partners nationwide.</p>
 </section>
-
 
 <section class="section">
-<div class="map" role="img" aria-label="Map with dots: Charleston & NYC">
-<span class="dot dot--chs" title="Charleston"></span>
-<span class="dot dot--nyc" title="NYC"></span>
-</div>
+  <div class="centered-narrow">
+    <div class="operate-grid" role="group" aria-label="Images: Charleston — Pineapple Fountain & Ravenel Bridge; New York — Manhattan Bridge & Midtown Skyline.">
+      <h3 class="pill-header" data-region="sc">South Carolina</h3>
+      <div class="op-frame"><img src="./public/web-assets/pineapple-charleston.jpg" alt="Pineapple Fountain"></div>
+      <div class="op-frame"><img src="./public/web-assets/arthur-bridge.jpg" alt="Ravenel Bridge"></div>
+
+      <h3 class="pill-header" data-region="ny">New York</h3>
+      <div class="op-frame"><img src="./public/web-assets/liberty.jpg" alt="Statue of Liberty"></div>
+      <div class="op-frame"><img src="./public/web-assets/skyline.jpg" alt="NYC Skyline"></div>
+    </div>
+
+    <div class="pill-row" style="margin-top:12px">
+      <span class="pill">Charleston, SC — Tri-County area</span>
+      <span class="pill">New York, NY — Metropolitan area</span>
+      <span class="pill">Nationwide partnerships — ask us</span>
+    </div>
+  </div>
 </section>
 
-
 <footer class="footer">
-<div>© <span id="y"></span> QuickChoice Vending</div>
-<nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
+  <div>© <span id="y"></span> QuickChoice Vending</div>
+  <nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
 </footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
