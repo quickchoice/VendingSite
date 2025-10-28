@@ -1,0 +1,110 @@
+/* =================== QuickChoice • about.css ===================
+   Styles specific to about.html
+   (This file is loaded *after* general.css)
+*/
+
+/* ===== Hero Section ===== */
+.hero.hero--blue {
+  background: linear-gradient(180deg, #eaf2f8, #dde8f5);
+}
+.hero__sub {
+  max-width: 720px;
+}
+
+/* ===== Team Grid ===== */
+.team-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+@media (max-width: 980px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Individual Profile Cards ===== */
+.profile-card {
+  display: block;
+  padding: 18px;
+  border-radius: var(--r-xl);
+  background: #fffdf7;
+  border: 1.5px solid var(--rim);
+  box-shadow: none;
+  position: relative;
+}
+.profile-card::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Headshot wrapper — ensures float consistency */
+.profile-card .headshot-wrap {
+  float: left;
+  width: 160px;
+  height: 160px;
+  margin: 2px 18px 10px 0;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow: hidden;
+  shape-outside: inset(0 round 20px);
+  -webkit-shape-outside: inset(0 round 20px);
+}
+
+/* Image fills wrapper */
+.profile-card .headshot-wrap img.headshot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Titles & Text */
+.profile-card h3 {
+  margin: 0 0 4px;
+  color: var(--brand-blue);
+  font-size: 22px;
+}
+.profile-meta {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #294256;
+}
+.profile-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .profile-card .headshot-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    margin: 2px 14px 8px 0;
+    shape-outside: inset(0 round 16px);
+    -webkit-shape-outside: inset(0 round 16px);
+  }
+  .profile-card h3 {
+    font-size: 20px;
+  }
+}
+
+/* ===== Section Layout ===== */
+.section__title {
+  text-align: left;
+}
+.section p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ===== Footer adjustments ===== */
+.footer {
+  margin-top: 40px;
+}
