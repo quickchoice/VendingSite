@@ -1,0 +1,153 @@
+/* =================== QuickChoice • contact.css ===================
+   Styles specific to contact.html
+   (This file is loaded *after* general.css)
+*/
+
+/* ===== Hero Section ===== */
+.hero.hero--blue {
+  background: linear-gradient(180deg, #eaf2f8, #dce8f5);
+}
+.hero__sub {
+  max-width: 740px;
+}
+
+/* ===== Contact Section Layout ===== */
+.contact-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 18px;
+  overflow: hidden;
+}
+
+/* ===== Background Image ===== */
+.contact-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.contact-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%; /* lowers crop */
+  opacity: 0.25;
+  filter: blur(2px);
+  transform: scale(0.85);
+  transition: transform 0.4s ease, object-position 0.4s ease;
+}
+
+/* ===== Glass Form Card ===== */
+.form-card.glass {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  background: rgba(255, 249, 236, 0.78);
+  border: 1.5px solid rgba(168, 78, 59, 0.4);
+  border-radius: var(--r-xl);
+  box-shadow: var(--lift);
+  max-width: 900px;
+  padding: 28px;
+  color: var(--ink);
+  animation: floatUp 0.5s ease;
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Header Pill and Subtitle ===== */
+.form-card__header {
+  display: grid;
+  gap: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.form-pill {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1.5px solid var(--rim);
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: #294256;
+  font-weight: 800;
+}
+.form-sub { margin: 0; color: #2b4052; }
+
+/* ===== Form Grid ===== */
+.qform { margin-top: 6px; }
+.qgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.qfield { display: grid; gap: 6px; }
+.qfield--full { grid-column: 1 / -1; }
+
+.qlabel {
+  font-weight: 700;
+  color: #0c2c41;
+  font-size: 14px;
+}
+
+/* ===== Inputs and Textarea ===== */
+.qinput,
+.qtextarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 0 #fff inset;
+  color: var(--ink);
+  transition: border-color 0.12s ease, box-shadow 0.12s ease, transform 0.06s ease;
+}
+
+/* focus and hover feedback */
+.qinput:focus,
+.qtextarea:focus {
+  outline: none;
+  border-color: var(--rim);
+  box-shadow: 0 0 0 3px rgba(232, 167, 122, 0.35);
+}
+.qinput:hover,
+.qtextarea:hover {
+  transform: translateY(-1px);
+}
+
+.qtextarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* ===== Submit Section ===== */
+.qactions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.qnote { color: var(--muted); }
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 720px) {
+  .qgrid { grid-template-columns: 1fr; }
+  .form-card.glass { padding: 18px; }
+  .contact-bg-img { object-position: center 35%; transform: scale(0.9); }
+}
+@media (min-width: 721px) and (max-width: 1170px) {
+  .form-card.glass { padding: 22px; }
+}
+@media (min-width: 1280px) {
+  .form-card.glass { padding: 30px; }
+}
+
+/* ===== Footer Spacing ===== */
+.footer {
+  margin-top: 50px;
+}
