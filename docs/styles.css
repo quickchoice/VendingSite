@@ -198,11 +198,11 @@ body {
 /* =================== Responsive tweaks =================== */
 
 /* Phones: shrink more, smaller ticker */
-@media (max-width: 760px){
+@media (max-aspect-ratio: 9/10){
   :root{
-    --fit-margin: 28px;     /* more breathing room on tiny screens */
-    --fit-scale-mult: 0.82; /* extra downscale so it’s NOT zoomed in */
-    --base-font: 15px;
+    --fit-margin: 102px;
+    --fit-scale-mult: 0.95;
+  --fit-nudge-y: 130px;
   }
   body{
     background-image:url("./public/web-assets/office-phone.png");
