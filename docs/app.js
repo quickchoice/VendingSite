@@ -100,3 +100,60 @@
   layout();
   requestAnimationFrame(raf);
 })();
+
+/* ===== Fit the vending machine to the viewport (no scroll, centered) ===== */
+(function () {
+  const root  = document.documentElement;
+  const stack = document.querySelector('.vm__stack');
+  if (!stack) return;
+
+  function fit() {
+    // Reset before measuring
+    root.style.setProperty('--vm-scale', 1);
+    root.style.setProperty('--vm-x', '0px');
+    root.style.setProperty('--vm-y', '0px');
+
+    const styles = getComputedStyle(root);
+    const vw = Math.max(document.documentElement.clientWidth,  window.innerWidth  || 0);
+    const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    const margin = parseFloat(styles.getPropertyValue('--fit-margin'))  || 0;
+    const nudgeY = parseFloat(styles.getPropertyValue('--fit-nudge-y')) || 0;
+    const mult   = parseFloat(styles.getPropertyValue('--fit-scale-mult')) || 1;
+
+    // Measure natural size (scale=1) of whole stack
+    const rect = stack.getBoundingClientRect();
+    const natW = rect.width;
+    const natH = rect.height;
+
+    // Uniform scale to fit, then apply extra multiplier (phones use <1)
+    const scaleX = (vw - margin * 2) / natW;
+    const scaleY = (vh - margin * 2) / natH;
+    let scale  = Math.min(scaleX, scaleY);
+    scale = Math.max(0.1, scale * mult);
+
+    const usedW = natW * scale;
+    const usedH = natH * scale;
+
+    const x = Math.round((vw - usedW) / 2);
+    const y = Math.round((vh - usedH) / 2 + nudgeY);
+
+    root.style.setProperty('--vm-scale', scale.toFixed(3));
+    root.style.setProperty('--vm-x', `${x}px`);
+    root.style.setProperty('--vm-y', `${y}px`);
+  }
+
+  let raf;
+  const queue = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(fit); };
+
+  window.addEventListener('load', fit, { once: true });
+  window.addEventListener('resize', queue, { passive: true });
+  window.addEventListener('orientationchange', queue, { passive: true });
+
+  // iOS URL bar height jitter
+  let lastVh = window.innerHeight;
+  setInterval(() => {
+    const now = window.innerHeight;
+    if (Math.abs(now - lastVh) > 8) { lastVh = now; queue(); }
+  }, 400);
+})();

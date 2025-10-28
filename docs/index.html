@@ -4,20 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>QuickChoice • Pick a Selection</title>
-    <meta
-      name="description"
-      content="Smart Vending, Made Simple. Choose a selection."
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Smart Vending, Made Simple. Choose a selection." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
-
   </head>
+
   <body>
-    <main class="vm vm--tall" aria-label="QuickChoice navigation selections">
+    <main class="vm" aria-label="QuickChoice navigation selections">
       <div class="vm__stack">
         <div class="vm__cabinet vm__cabinet--matte">
           <!-- Lightbox brand sign -->
@@ -31,72 +25,38 @@
           <div class="vm__center">
             <!-- TICKER -->
             <div class="vm__ticker" id="ticker">
-              <span class="vm__ticker-text" id="tickerText"
-                >Please make a selection</span
-              >
+              <span class="vm__ticker-text" id="tickerText">Please make a selection</span>
             </div>
 
             <!-- Button Grid -->
             <section class="vm__panel">
               <nav class="vm__grid vm__grid--2col" id="vending-grid">
-                <a class="vm__btn vm__btn--cream" href="home.html"
-                  ><span>Home</span></a
-                >
-                <a class="vm__btn vm__btn--teal" href="about.html"
-                  ><span>About&nbsp;Us</span></a
-                >
-                <a class="vm__btn vm__btn--red" href="services.html"
-                  ><span>Services</span></a
-                >
-                <a class="vm__btn vm__btn--green" href="industries.html"
-                  ><span>Industries</span></a
-                >
-                <a class="vm__btn vm__btn--navy" href="coverage.html"
-                  ><span>Coverage</span></a
-                >
-                <a class="vm__btn vm__btn--orange" href="testimonials.html"
-                  ><span>Testimonials</span></a
-                >
-                <a class="vm__btn vm__btn--sand" href="partnership.html"
-                  ><span>Partnership</span></a
-                >
-                <a class="vm__btn vm__btn--blue" href="contact.html"
-                  ><span>Contact</span></a
-                >
+                <a class="vm__btn vm__btn--cream"  href="home.html"><span>Home</span></a>
+                <a class="vm__btn vm__btn--teal"   href="about.html"><span>About&nbsp;Us</span></a>
+                <a class="vm__btn vm__btn--red"    href="services.html"><span>Services</span></a>
+                <a class="vm__btn vm__btn--green"  href="industries.html"><span>Industries</span></a>
+                <a class="vm__btn vm__btn--navy"   href="coverage.html"><span>Coverage</span></a>
+                <a class="vm__btn vm__btn--orange" href="testimonials.html"><span>Testimonials</span></a>
+                <a class="vm__btn vm__btn--sand"   href="partnership.html"><span>Partnership</span></a>
+                <a class="vm__btn vm__btn--blue"   href="contact.html"><span>Contact</span></a>
               </nav>
             </section>
           </div>
 
           <!-- Lower Section -->
-          <!-- Lower Section (2 images replacing CSS blocks) -->
           <div class="vm__lower">
-            <img
-              src="./public/web-assets/snackslot.png"
-              alt="Bill slot"
-              class="vm__bill-img"
-            />
-            <img
-              src="./public/web-assets/coinslot.png"
-              alt="Coin slot"
-              class="vm__coin-img"
-            />
+            <img src="./public/web-assets/snackslot.png" alt="Bill slot"  class="vm__bill-img" />
+            <img src="./public/web-assets/coinslot.png" alt="Coin slot"  class="vm__coin-img" />
           </div>
         </div>
-        <!-- /vm__cabinet -->
 
-        <!-- Vending machine legs (perfectly aligned) -->
+        <!-- Vending machine legs -->
         <figure class="vm__below">
-          <img
-            src="./public/web-assets/leg-shadow.png"
-            alt="Vending machine legs"
-            loading="lazy"
-          />
+          <img src="./public/web-assets/leg-shadow.png" alt="Vending machine legs" loading="lazy" />
         </figure>
       </div>
-      <!-- /vm__stack -->
     </main>
 
     <script src="./app.js" defer></script>
-
   </body>
 </html>
