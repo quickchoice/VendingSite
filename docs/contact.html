@@ -1,20 +1,31 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Contact</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="general.css" />
 <link rel="stylesheet" href="contact.css" />
-
 <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+
+<!-- EmailJS (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // TODO: put your EmailJS public key here (looks like "ZyXW...").
+  // Create at https://dashboard.emailjs.com/admin
+  document.addEventListener('DOMContentLoaded', () => {
+    emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+  });
+</script>
 </head>
+
 <body class="page">
 <header class="topbar">
   <a class="topbar__back" href="./index.html">← Selections</a>
   <div class="topbar__brand">QuickChoice</div>
   <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
-  
 </header>
 
 <section class="hero hero--blue">
@@ -33,42 +44,43 @@
       <p class="form-sub">We typically reply within one business day.</p>
     </div>
 
-    <!-- Replace DAVID_EMAIL -->
-    <form class="qform" method="get"
-          action="mailto:dante.smith@quickchoice.net,DAVID_EMAIL?subject=QuickChoice%20Inquiry"
-          enctype="text/plain">
+    <!-- No action=mailto — we send via EmailJS in JS -->
+    <form class="qform" id="qcForm">
+      <!-- hidden field for snack list -->
+      <input type="hidden" name="snack_list" id="snackField">
+
       <div class="qgrid">
         <label class="qfield">
           <span class="qlabel">Your name</span>
-          <input class="qinput" name="Name" placeholder="Jane Doe" required>
+          <input class="qinput" name="name" id="name" placeholder="Jane Doe" required>
         </label>
 
         <label class="qfield">
           <span class="qlabel">Company / Location</span>
-          <input class="qinput" name="Company" placeholder="Acme HQ • 4th Floor">
+          <input class="qinput" name="company" id="company" placeholder="Acme HQ • 4th Floor">
         </label>
 
         <label class="qfield">
           <span class="qlabel">Your email</span>
-          <input class="qinput" type="email" name="Email" placeholder="you@company.com" required>
+          <input class="qinput" type="email" name="email" id="email" placeholder="you@company.com" required>
         </label>
 
         <label class="qfield">
           <span class="qlabel">City, State</span>
-          <input class="qinput" name="City" placeholder="Charleston, SC">
+          <input class="qinput" name="city" id="city" placeholder="Charleston, SC">
         </label>
 
         <label class="qfield qfield--full">
           <span class="qlabel">What are you looking for?</span>
-          <textarea class="qtextarea" name="Message"
+          <textarea class="qtextarea" name="message" id="message"
             placeholder="Vending, micro-market, or office snacks? How many people? Any favorites to stock?"
             required></textarea>
         </label>
       </div>
 
       <div class="qactions">
-        <button class="btn-pill" type="submit">Send Email</button>
-        <span class="qnote small">Prefer a backend? We can wire Formspree or your API later.</span>
+        <button class="btn-pill" type="submit" id="sendBtn">Send</button>
+        <span class="qnote small" id="statusNote"></span>
       </div>
     </form>
   </div>
@@ -83,6 +95,76 @@
   </nav>
 </footer>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Pull snacks from URL (?snacks=...)
+  (function(){
+    const params = new URLSearchParams(location.search);
+    const picks = params.get('snacks'); // <-- must match services.js
+    if (!picks) return;
+
+    const ta = document.getElementById('message');
+    const hidden = document.getElementById('snackField');
+
+    const line = `SNACK INVENTORY REQUEST: ${picks}`;
+    hidden.value = line;
+
+    if (ta && !ta.value.trim()) {
+      ta.value = `${line}\n\nTell us about your location:`;
+    }
+  })();
+
+  // Handle EmailJS submit
+  document.getElementById('qcForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const sendBtn = document.getElementById('sendBtn');
+    const statusNote = document.getElementById('statusNote');
+
+    // collect form data
+    const data = {
+      // these keys must match your EmailJS template variables
+      name: document.getElementById('name').value.trim(),
+      company: document.getElementById('company').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      city: document.getElementById('city').value.trim(),
+      message: document.getElementById('message').value.trim(),
+      snack_list: document.getElementById('snackField').value.trim(),
+
+      // Send to multiple recipients (comma separated)
+      to_email: 'parkerjoe365@gmail.com,david.grubbs@quickchoice.net,dante.smith@quickchoice.net',
+      subject: 'QuickChoice Inquiry',
+    };
+
+    // TODO: put your EmailJS IDs here:
+    // - service ID:   e.g. 'service_xxxxxxx'
+    // - template ID:  e.g. 'template_yyyyyyy'
+    const SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
+    const TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
+
+    try {
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+      statusNote.textContent = 'Sending via secure email…';
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, data);
+
+      sendBtn.textContent = 'Sent!';
+      statusNote.textContent = 'Thanks! We’ll get back to you shortly.';
+      // Optional: clear fields after a short delay
+      setTimeout(() => {
+        document.getElementById('qcForm').reset();
+        sendBtn.textContent = 'Send';
+        sendBtn.disabled = false;
+      }, 1500);
+    } catch (err) {
+      console.error(err);
+      sendBtn.textContent = 'Send';
+      sendBtn.disabled = false;
+      statusNote.textContent = 'Error sending. Please try again or email us directly.';
+    }
+  });
+</script>
 </body>
 </html>

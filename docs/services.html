@@ -17,7 +17,7 @@
 
 <section class="hero hero--cream">
   <h1 class="script hero__script">Tailored to Your Location</h1>
-  <p class="hero__sub">Pick a setup that fits your team — and your space.</p>
+<p class="hero__sub">Pick what you’d like stocked. We provide the machine, inventory, and restocking — <strong>no cost to you</strong>.</p>
 </section>
 
 <!-- Business & Revenue Model (expanded) -->
@@ -25,7 +25,7 @@
   <div class="centered-narrow model-band glass">
     <div class="model-flex">
       <div class="model-col">
-        <h3>What We Provide (No Cost to You)</h3>
+        <h3>What We Provide </h3>
         <ul>
           <li>Vending machine, cashless readers, and software setup.</li>
           <li>Inventory sourcing and restocking (rotation based on demand).</li>
@@ -56,91 +56,45 @@
   </div>
 </section>
 
-<section class="section" id="vending">
-  <h2 class="section__title">Vending</h2>
-  <div class="feature">
-    <div class="feature__media photo">
-      <img src="./public/web-assets/machine-vending.jpg" alt="Modern snack & drink machines with card readers" />
-    </div>
-    <div class="feature__body">
-      <ul class="bullets">
-        <li>Quick checkout (QR / web pay) and touchless card readers.</li>
-        <li>Cashless by default — tap, wallet, or card with receipts.</li>
-        <li>Reliable hardware and responsive service for minimal downtime.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Snack examples (replace images with your exact list) -->
-  <div class="centered-narrow" style="margin-top:14px">
-    <div class="snack-grid">
-      <div class="snack"><img src="./public/web-assets/snacks/chips.png" alt="Chips"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/proteinbar.png" alt="Protein Bar"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/sparkling.png" alt="Sparkling Water"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/jerky.png" alt="Jerky"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/cookies.png" alt="Cookies"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/energy.png" alt="Energy Drink"></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="markets">
-  <h2 class="section__title">Micro-Markets</h2>
-  <div class="feature">
-    <div class="feature__media photo">
-      <img src="./public/web-assets/machine-market.jpg" alt="Open coolers, shelves, and a self-checkout tablet">
-    </div>
-    <div class="feature__body">
-      <ul class="bullets">
-        <li>Fresh options with open-shelf browsing.</li>
-        <li>Self-checkout kiosk with cashless payment.</li>
-        <li>Ideal for locations with 75+ people.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="centered-narrow" style="margin-top:14px">
-    <div class="snack-grid">
-      <div class="snack"><img src="./public/web-assets/snacks/fresh-salad.png" alt="Fresh Salad"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/yogurt.png" alt="Yogurt"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/fruitcup.png" alt="Fruit Cup"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/kombucha.png" alt="Kombucha"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/iced-coffee.png" alt="Iced Coffee"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/grainbowl.png" alt="Grain Bowl"></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="pantry">
-  <h2 class="section__title">Office Snacks & Drinks</h2>
-  <div class="feature">
-    <div class="feature__media photo">
-      <img src="./public/web-assets/machine-office.jpg" alt="Breakroom counter with snack baskets and sparkling water fridge">
-    </div>
-    <div class="feature__body">
-      <ul class="bullets">
-        <li>Rotating curated assortments (healthy + popular favorites).</li>
-        <li>We manage ordering, stocking, and presentation.</li>
-        <li>Optional stipend or free-vend programs.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="centered-narrow" style="margin-top:14px">
-    <div class="snack-grid">
-      <div class="snack"><img src="./public/web-assets/snacks/nuts.png" alt="Nuts"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/granola.png" alt="Granola"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/seltzer.png" alt="Seltzer"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/chocolate.png" alt="Chocolate"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/pretzels.png" alt="Pretzels"></div>
-      <div class="snack"><img src="./public/web-assets/snacks/tea.png" alt="Tea"></div>
-    </div>
-  </div>
-</section>
-
+<!-- Simple “how it works” strip -->
 <section class="section section--soft">
-  <div class="centered-narrow" style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
-    <a class="btn-pill" href="./contact.html">Request Install</a>
-    <a class="btn-ghost" href="./partnership.html">Partner With Us</a>
-    <a class="btn-pill" href="./contact.html">Please call to discuss</a>
+  <div class="how">
+    <div class="how__item"><span class="how__num">1</span>Browse snacks & drinks</div>
+    <div class="how__item"><span class="how__num">2</span>Tap to shortlist</div>
+    <div class="how__item"><span class="how__num">3</span>Send list with your address</div>
+  </div>
+</section>
+
+<!-- Controls -->
+<section class="section">
+  <div class="controls">
+    <div class="chips" role="tablist" aria-label="Snack categories">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="chip" data-filter="snacks" role="tab">Snacks</button>
+      <button class="chip" data-filter="chips" role="tab">Chips</button>
+      <button class="chip" data-filter="candy" role="tab">Candy</button>
+      <button class="chip" data-filter="crackers" role="tab">Crackers</button>
+      <button class="chip" data-filter="drinks" role="tab">Drinks</button>
+    </div>
+
+    <label class="search">
+      <input id="searchInput" type="search" placeholder="Search (e.g., ‘Clif’, ‘La Croix’, ‘Gatorade’)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79L20 21.5 21.5 20l-6-6zM10 14a4 4 0 110-8 4 4 0 010 8z"/></svg>
+    </label>
+  </div>
+
+  <!-- Grid -->
+  <div id="snackGrid" class="grid" aria-live="polite"></div>
+
+  <!-- Sticky selection bar -->
+  <div class="sticky" id="stickyBar" hidden>
+    <div class="sticky__left">
+      <strong id="selCount">0</strong> selected
+    </div>
+    <div class="sticky__right">
+      <a class="btn-pill" id="contactBtn" href="./contact.html">Send list</a>
+      <button class="btn-ghost" id="clearBtn" type="button">Clear</button>
+    </div>
   </div>
 </section>
 
@@ -148,6 +102,8 @@
   <div>© <span id="y"></span> QuickChoice Vending</div>
   <nav class="footer__nav"><a href="./home.html">Home</a><a href="./about.html">About</a><a href="./contact.html">Contact</a></nav>
 </footer>
+
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script src="services.js" defer></script>
 </body>
 </html>
