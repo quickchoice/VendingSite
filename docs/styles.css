@@ -1,66 +1,97 @@
 @font-face {
   font-family: 'DS-Digital';
   src: url('./font/ds_digital/DS-DIGI.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+
 }
 
-/* =================== Root tokens =================== */
+/* =================== QuickChoice Vending Nav =================== */
 :root{
-  /* cabinet + palette */
   --cabinet-navy:#254765;
   --cabinet-navy-2:#1a324a;
-  --panel-1:#eef2f6;   --panel-2:#cfd7df;   --panel-3:#9aa6b2;
-  --sign-bg:#f6fafc;   --brand-blue:#1a4c74;
-
+  --panel-1:#eef2f6;
+  --panel-2:#cfd7df;
+  --panel-3:#9aa6b2;
+  --sign-bg:#f6fafc;
+  --brand-blue:#1a4c74;
   --cream:#fff1d8; --teal:#13a7be; --red:#d65845; --green:#2aa562;
   --navy:#113350; --orange:#ea783a; --sand:#e8d7b4; --blue:#2f7fd3;
 
-  /* machine natural width; fitter scales from here */
-  --vm-width: 580px;
+  /* ===== global machine controls ===== */
+  --vm-width: 580px;  /* base machine width before scale; also affects legs */
+  --vm-scale: 1;      /* uniform scaling for ALL inner elements (fonts, buttons, etc.) */
+  --vm-x: 0px;        /* left(-) / right(+) */
+  --vm-y: 60px;        /* up(-) / down(+) */
 
-  /* set by JS fitter */
-  --vm-scale: 1;
-  --vm-x: 0px;
-  --vm-y: 0px;
-
-  /* fitter knobs */
-  --fit-margin: 20px;        /* breathing room around machine */
-  --fit-nudge-y: 0px;        /* drop a little on desktop so legs feel grounded */
-  --fit-scale-mult: 1;       /* extra multiplier (we shrink on mobile) */
-
+  /* optional text baseline if you want global font ramp with scaling (used on body) */
   --base-font: 16px;
 }
 
-/* =================== Page layout =================== */
-html, body { height:100%; margin:0; overflow:hidden; }
+/* ========== Page layout ========== */
+html, body { height:100%; margin:0; }
 body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  color:#0f2233;
+  color: #0f2233;
+  margin: 0;
+
+  /* background image only (no gradient) */
   background-image: url("./public/web-assets/office.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+
   font-size: var(--base-font);
 }
 
-/* anchor to viewport so translate() is absolute */
-.vm { min-height:100svh; display:block; overflow:hidden; }
+/* stage: center & prevent scrollbars */
+.vm {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;     /* no scrollbars from shadows or transforms */
+  padding: 0;           /* not used for positioning */
+}
+
+/* stack containing cabinet + legs
+   - width sets the natural layout size
+   - transform handles scaling & positioning without reflow */
 .vm__stack{
-  position: fixed;
-  top: 0; left: 0;
-  width: var(--vm-width);
+  width: min(var(--vm-width), 94vw);
+  margin: 0 auto;
   display: grid;
   gap: 6px;
-  transform: translate(var(--vm-x), var(--vm-y)) scale(var(--vm-scale));
-  transform-origin: top left;
+  justify-items: stretch;
+
+  transform:
+    translate(var(--vm-x), var(--vm-y))
+    scale(var(--vm-scale));
+  transform-origin: top center;
   will-change: transform;
 }
 
-/* =================== Machine visuals =================== */
+/* ===== keep your custom legs offsets exactly ===== */
+.vm__below{
+  position: relative;
+  margin-top:-8px;         /* visual tuck under cabinet */
+  margin-bottom:0;
+  align-self:start;
+  justify-self:stretch;
+  width:101%;              /* (kept) */
+  box-sizing:border-box;
+  right:42px;              /* (kept) */
+}
+.vm__below img{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  object-fit:cover;
+  border-radius:0 0 12px 12px; /* bottom remains rounded */
+}
+
+/* ===== machine visuals ===== */
 .vm__cabinet {
-  border-radius:18px 18px 0 0 !important;
+  border-radius:18px 18px 0 0 !important; /* square bottom corners */
   background:linear-gradient(180deg,var(--cabinet-navy),var(--cabinet-navy-2));
   box-shadow:0 26px 60px rgba(0,0,0,.4), inset 0 0 0 1px rgba(0,0,0,.55);
   padding:24px 30px 50px;
@@ -74,40 +105,70 @@ body {
   content:"";
   position:absolute;
   top:8px; bottom:8px;
-  width:8px; pointer-events:none; border-radius:6px;
+  width:8px;
+  pointer-events:none;
+  border-radius:6px;
 }
-.vm__cabinet::before{ left:6px;  background:linear-gradient(90deg, rgba(255,255,255,.06), transparent 80%); }
-.vm__cabinet::after { right:6px; background:linear-gradient(270deg, rgba(0,0,0,.12), transparent 80%); }
+.vm__cabinet::before{
+  left:6px;
+  background:linear-gradient(90deg, rgba(255,255,255,.06), transparent 80%);
+}
+.vm__cabinet::after{
+  right:6px;
+  background:linear-gradient(270deg, rgba(0,0,0,.12), transparent 80%);
+}
 
 /* sign */
 .vm__sign { padding:0 4px 16px; }
 .vm__sign-inner {
-  height:96px; border-radius:12px;
+  height:96px;
+  border-radius:12px;
   background:linear-gradient(180deg,var(--sign-bg),#eaf0f4);
   border:2px solid #a3b1be;
   box-shadow:inset 0 1px 0 #fff, 0 10px 26px rgba(0,0,0,.4);
-  display:grid; place-items:center; text-align:center;
+  display:grid;
+  place-items:center;
+  text-align:center;
 }
-.vm__brand { margin:10px 0 2px; font-family:Allura,"Playfair Display",serif; font-size:56px; color:var(--brand-blue); text-shadow:0 1px 0 #fff; }
-.vm__motto { margin:-20px 0 8px; font-weight:800; color:#1d4667; letter-spacing:.02em; }
+.vm__brand {
+  margin:10px 0 2px;
+  font-family:Allura,"Playfair Display",serif;
+  font-size:56px;
+  color:var(--brand-blue);
+  text-shadow:0 1px 0 #fff;
+}
+.vm__motto {
+  margin:-20PX 0 8px;
+  font-weight:800;
+  color:#1d4667;
+  letter-spacing:.02em;
+}
 
 /* ticker */
 .vm__ticker {
-  height:34px;
+  height:40px;
   margin:0 0 12px 0;
   border-radius:6px;
   background:#0b0b0c;
   border:1px solid #16181b;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.4);
-  position:relative; overflow:hidden;
+  position:relative;
+  overflow:hidden;
 }
 .vm__ticker-text {
-  position:absolute; top:0; left:0; white-space:nowrap; will-change:transform;
+  position:absolute;
+  top:0;
+  left:0;
+  white-space:nowrap;
+  will-change:transform;
   color:#ff3b3b;
+
   letter-spacing:.04em;
-  line-height:34px;
-  font-size: clamp(16px, 3.4vw, 26px);   /* smaller by default; scales with viewport */
-  padding:0; margin:0; text-transform:uppercase;
+  line-height:40px;
+  font-size:35px;
+  padding:0;
+  margin:0;
+  text-transform:uppercase;
   font-family:'DS-Digital', sans-serif;
   text-shadow:0 0 1px #ff3b3b, 0 0 3px #ff3b3b, 0 0 6px #ff5b5b;
 }
@@ -134,28 +195,51 @@ body {
 .vm__btn--blue   { --btnBase:#3e86d6; }
 
 .vm__btn {
-  position:relative; display:block; height:104px; border-radius:12px; text-decoration:none; outline:none;
+  position:relative;
+  display:block;
+  height:104px;
+  border-radius:12px;
+  text-decoration:none;
+  outline:none;
   background:
     linear-gradient(180deg, rgba(255,255,255,.12), transparent 35%) padding-box,
     linear-gradient(180deg, color-mix(in oklab, var(--btnBase) 88%, black 12%),
                            color-mix(in oklab, var(--btnBase) 78%, black 22%)) border-box;
   border:1px solid color-mix(in oklab, var(--btnBase) 35%, black 65%);
-  box-shadow: inset 0 3px 0 rgba(255,255,255,.10), inset 0 -2px 0 rgba(0,0,0,.28), 0 10px 22px rgba(0,0,0,.45);
+  box-shadow: inset 0 3px 0 rgba(255,255,255,.10),
+              inset 0 -2px 0 rgba(0,0,0,.28),
+              0 10px 22px rgba(0,0,0,.45);
   padding:6px;
 }
 .vm__btn::before {
-  content:""; position:absolute; inset:3px; border-radius:10px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 0 0 2px rgba(0,0,0,.35);
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:10px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05),
+              inset 0 0 0 2px rgba(0,0,0,.35);
   pointer-events:none;
 }
 .vm__btn span {
-  position:relative; z-index:1; display:grid; place-items:center; height:100%; border-radius:8px;
-  color:#fff; font-weight:900; font-size:22px; letter-spacing:.015em; text-shadow:0 1px 0 rgba(0,0,0,.5);
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  height:100%;
+  border-radius:8px;
+  color:#fff;
+  font-weight:900;
+  font-size:22px;
+  letter-spacing:.015em;
+  text-shadow:0 1px 0 rgba(0,0,0,.5);
   transform:translateY(-2px);
   filter:saturate(1.15) brightness(1.08);
   transition:transform 0.1s cubic-bezier(0.2, 0.9, 0.3, 1.4), filter 0.15s ease, box-shadow .12s ease;
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.3), inset 0 -3px 8px rgba(0,0,0,.45), 0 4px 8px rgba(0,0,0,.4);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.3),
+              inset 0 -3px 8px rgba(0,0,0,.45),
+              0 4px 8px rgba(0,0,0,.4);
 }
+
 /* faces */
 .vm__btn--cream  span{ color:#1c2730; text-shadow:none; background:linear-gradient(180deg,#fff2db, color-mix(in oklab, var(--btnBase) 100%, black 6%)); }
 .vm__btn--teal   span{ background:linear-gradient(180deg, color-mix(in oklab, var(--btnBase) 115%, white 10%), var(--btnBase)); }
@@ -166,160 +250,70 @@ body {
 .vm__btn--sand   span{ color:#1c2730; text-shadow:none; background:linear-gradient(180deg, #ffe5b6, var(--btnBase)); }
 .vm__btn--blue   span{ background:linear-gradient(180deg, #6ba9ec, var(--btnBase)); }
 
-/* Lower Section */
+/* Lower Section (image version) *//* Lower Section (aligned with button grid) */
 .vm__lower {
-  display:grid; grid-template-columns: 1fr auto; align-items:center; justify-items:center;
-  padding: 18px 20px 14px; position:relative;
-}
-.vm__bill-img { width:min(360px, 85%); object-fit:contain; justify-self:center; transform: translateX(45px); }
-.vm__coin-img { width: 90px; height:auto; border-radius:8px; justify-self:end; margin-right:8px; }
-
-/* legs image wrapper */
-.vm__below{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding: 18px 20px 14px;
   position: relative;
-  margin-top:-8px; margin-bottom:0;
-  width:101%; right:42px;
 }
-.vm__below img{ display:block; width:100%; max-width:100%; height:auto; object-fit:cover; border-radius:0 0 12px 12px; }
+
+/* Bill slot image — perfectly centered under button columns */
+.vm__bill-img {
+  width: min(360px, 85%);
+
+  object-fit: contain;
+  justify-self: center;
+  transform: translateX(45px); /* fine-tune horizontal offset */
+}
+
+/* Coin slot image — aligned with right edge of panel */
+.vm__coin-img {
+  width: 64px;
+  height: 48px;
+  object-fit: contain;
+  justify-self: end;
+  margin-right: calc(20px - 4px); /* matches panel padding minus fine-tune */
+  transform: translateX(35px);     /* small nudge right if needed */
+}
+
+
+.vm__coin-img {
+  width: 90px;
+  height: auto;
+  border-radius: 8px;
+  justify-self: end;
+  margin-right: 8px;
+}
 
 /* interactivity */
-.vm__btn:hover span, .vm__btn:focus-visible span {
+.vm__btn:hover span,
+.vm__btn:focus-visible span {
   transform:translateY(-1px);
   filter:saturate(1.05) brightness(1.02);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 6px rgba(0,0,0,.4), 0 6px 10px rgba(0,0,0,.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    inset 0 -2px 6px rgba(0,0,0,.4),
+    0 6px 10px rgba(0,0,0,.45);
 }
 .vm__btn:active span {
   transform:translateY(3px) scale(0.94);
   filter:saturate(0.9) brightness(0.92);
-  box-shadow: inset 0 6px 14px rgba(0,0,0,.30), inset 0 -2px 3px rgba(255,255,255,.20), 0 2px 4px rgba(0,0,0,.90);
+  box-shadow:
+    inset 0 6px 14px rgba(0,0,0,.30),
+    inset 0 -2px 3px rgba(255,255,255,.20),
+    0 2px 4px rgba(0,0,0,.90);
+}
+.vm__btn:active {
+  background:
+
+}
+.vm__btn:active::before{
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 0 2px rgba(0,0,0,.55);
 }
 .vm__btn:focus-visible{ outline:3px solid #ffda7a; outline-offset:3px }
 
-/* Small screens: tighten grid gap a hair */
-@media (max-width:520px){
-  .vm__grid--2col{ gap:12px; }
-}
-
-
-
-/* =================== responsive presets (tweak just the vars) =================== */
-/* 💻 1366×768 (HD laptops) */
-@media (min-width:1280px) and (max-width:1439px), (min-height:720px) and (max-height:799px){
-  :root{
-    --vm-width: 570px;
-    --vm-scale: 0.760;
-    --vm-x: -17px;     /* adjust horizontally here */
-    --vm-y: 4vh;     /* push a tad lower */
-    --base-font: 16px;
-  }
-}
-
-/* 💻 1920×1080 (Full HD) */
-@media (min-width:1800px) and (max-width:2199px) and (min-height:950px){
-  :root{
-    --vm-width: 640px;
-    --vm-scale: 1.085;
-    --vm-x: -22px;
-    --vm-y: -4vh;
-    --base-font: 17px;
-  }
-}
-
-
-/* 💻 2560×1440 (QHD) */
-@media (min-width:2200px) and (min-height:1200px){
-  :root{
-    --vm-width: 650px;
-    --vm-scale: 1.42;
-    --vm-x: -35px;
-    --vm-y: -12vh;
-    --base-font: 18px;
-  }
-}
-/* 💻 3440x1440 (Full HD) */
-@media (min-width:3440px)  {
-  :root{
-    --vm-width: 540px;
-    --vm-scale: 2.3;
-    --vm-x: -22px;
-    --vm-y: -20vh;
-    --base-font: 17px;
-  }
-}
-
-
-
-/* 📲 720×1600 (HD+, Android budget/mid) */
-@media (max-width:760px){
-  :root{
-    --vm-width: 545px;
-    --vm-scale: 1.08;
-    --vm-x: 0px;
-    --vm-y: 4vh; 
-    --base-font: 15px;
-  }
-   body {
-    background-image: url("./public/web-assets/office-phone.png");
-    background-position: calc(50% + 7px) center;
-
-  }
-  
-}
-
-/* 📱 1080×2400 (FHD+, 20:9) & 📱 1170×2532 (iPhone 13/14) */
-@media (min-width:761px) and (max-width:1180px){
-  :root{
-    --vm-width: 620px;
-    --vm-scale: 1.44;
-    --vm-x: 2px;
-    --vm-y: 0vh;
-    --base-font: 16px;
-  }
-
-   body {
-    background-image: url("./public/web-assets/office-phone.png");
-     background-size: 100%;
-       background-position: calc(50% + 15px) calc(50% + 19px);
-       background-color:gray;
-  }
-  
- 
-}
-/* 💻 Ultra-wide / 5K screens (e.g. 4974×2034) */
-@media (min-width:4800px) and (min-height:1900px) {
-  :root {
-    --vm-width: 600px;
-    --vm-scale: 2.35;
-    --vm-x: -40px;
-    --vm-y: -15vh;
-    --base-font: 20px;
-  }
-
-  body {
-  background-position: calc(50% + 215px) calc(50% -100px);
-  }
-}
-
-
-/* =================== Responsive tweaks =================== */
-
-/* Phones: shrink more, smaller ticker */
-@media (max-width: 760px){
-  :root{
-    --fit-margin: 28px;     /* more breathing room on tiny screens */
-    --fit-scale-mult: 0.82; /* extra downscale so it’s NOT zoomed in */
-    --base-font: 15px;
-  }
-  body{
-    background-image:url("./public/web-assets/office-phone.png");
-    background-position: center;
-    background-size: cover;
-  }
-  .vm__ticker{ height:26px; }
-  .vm__ticker-text{ line-height:26px; font-size: clamp(14px, 4vw, 18px); }
-}
-
-/* Desktop: center + slight drop so legs feel grounded */
-@media (min-width: 1024px){
-  :root{ --fit-nudge-y: 24px; }
-}
