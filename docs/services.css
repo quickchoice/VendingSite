@@ -4,10 +4,22 @@
 .hero .hero__script{ font-size:44px; }
 .section{ padding-top:24px; }
 
+/* Make the “standout” subhead bigger and bolder on this page */
+.hero .hero__sub,
+.hero__sub.hero__sub--big{
+  font-weight:800;
+  font-size:clamp(18px, 1.9vw, 24px);
+  line-height:1.35;
+  color:#0c2c41;
+  max-width:900px;
+  margin:10px auto 0;
+}
+
 /* photo blocks keep a consistent visual height */
 .feature__media.photo img{
   width:100%; height:100%; object-fit:cover; border-radius:20px;
 }
+
 /* =================== QuickChoice • services.css =================== */
 
 /* How-it-works */
@@ -42,7 +54,7 @@
 
 /* Grid */
 .grid{
-  --thumb:86px;            /* small, uniform thumb size */
+  --thumb:86px;
   --gap:12px;
   display:grid;gap:var(--gap);
   grid-template-columns:repeat(6,minmax(0,1fr));
@@ -63,9 +75,7 @@
   width:var(--thumb);height:var(--thumb);
   border-radius:12px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;overflow:hidden
 }
-.thumb img{
-  width:100%;height:100%;object-fit:contain; /* small + responsive, no crop */
-}
+.thumb img{ width:100%;height:100%;object-fit:contain; }
 .label{font-weight:800;color:#0c2c41;text-align:center;font-size:13px;line-height:1.2}
 .sub{color:var(--muted);font-size:12px;text-align:center}
 

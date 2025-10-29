@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -5,36 +6,142 @@
 <title>QuickChoice • Industries</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="general.css" />
-    <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+<link rel="stylesheet" href="industries.css" />
+<link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
 </head>
+
 <body class="page">
 <header class="topbar">
-<a class="topbar__back" href="./index.html">← Selections</a>
-<div class="topbar__brand">QuickChoice</div>
-<a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
+  <a class="topbar__back" href="./index.html">← Selections</a>
+  <div class="topbar__brand">QuickChoice</div>
+  <a class="topbar__cta" href="./contact.html">Get a Free Machine</a>
 </header>
 
-
 <section class="hero hero--blue">
-<h1 class="script hero__script">Who We Serve</h1>
-<p class="hero__sub">Offices • Warehouses • Gyms • Schools • Multifamily • Healthcare</p>
+  <h1 class="script hero__script">Who We Serve</h1>
+  <p class="hero__sub">Smart vending for workplaces, communities, and public spaces.</p>
+  <div class="industry-cta">
+    <a href="./contact.html" class="industry-cta-link">
+      Select your business type below — or click here if you're ready to get started.
+    </a>
+  </div>
 </section>
 
+<section class="section industries">
+  <div class="industries-grid">
 
-<section class="section">
-<div class="cards-3">
-<div class="rounded-card"><h3>Offices (25–500+)</h3><p>Morale boost with minimal space.</p></div>
-<div class="rounded-card"><h3>Industrial / Warehouse</h3><p>24/7 access for shift teams; rugged setups.</p></div>
-<div class="rounded-card"><h3>Fitness & Schools</h3><p>Cold drinks, better‑for‑you options, simple maintenance.</p></div>
-</div>
-<div class="photo photo--wide" role="img" aria-label="Photo: montage of client locations using machines"></div>
+    <a class="ind-link" href="./contact.html?industry=Corporate%20Offices">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/offices.jpg" alt="Corporate Office">
+        <div class="ind-info">
+          <h3>Corporate Offices</h3>
+          <p>Boost morale and productivity with convenient snacks & drinks steps away.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Gyms">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/gyms.jpg" alt="Gym Facility">
+        <div class="ind-info">
+          <h3>Gyms & Fitness Centers</h3>
+          <p>Energy drinks, protein snacks, and healthy options for active members.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Schools">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/schools.jpeg" alt="School Campus">
+        <div class="ind-info">
+          <h3>Schools & Colleges</h3>
+          <p>Reliable access for students and staff during long days and study nights.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Hotels">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/hotels.jpg" alt="Hotel Lobby">
+        <div class="ind-info">
+          <h3>Hotels & Hospitality</h3>
+          <p>24/7 access for guests without requiring front-desk assistance.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Apartments">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/apartments.jpeg" alt="Apartments">
+        <div class="ind-info">
+          <h3>Apartments & Multifamily</h3>
+          <p>Modern amenity that adds value and convenience for residents.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Warehouses">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/factories.png" alt="Factory">
+        <div class="ind-info">
+          <h3>Industrial / Warehouses</h3>
+          <p>Shift workers get fast access without leaving the facility.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Car%20Dealerships">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/car-dealership.webp" alt="Car dealership">
+        <div class="ind-info">
+          <h3>Car Dealerships</h3>
+          <p>Snacks & drinks for customers during service appointments and sales meetings.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Laundromats">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/laundromat.jpg" alt="Laundromat">
+        <div class="ind-info">
+          <h3>Laundromats</h3>
+          <p>Perfect for long wash cycles — people always buy drinks & snacks.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="ind-link" href="./contact.html?industry=Healthcare">
+      <article class="ind-card">
+        <img src="./public/web-assets/industries/hospitals.webp" alt="Hospital waiting room">
+        <div class="ind-info">
+          <h3>Hospitals & Healthcare</h3>
+          <p>24/7 access for staff, patients, and visitors. Fresh, sanitary, dependable.</p>
+        </div>
+      </article>
+    </a>
+
+  </div>
+
+  <div class="ind-cta">
+    <a href="./contact.html" class="ind-cta-box">
+      <span>Business not listed? We’ll work with you — get in touch!</span>
+    </a>
+  </div>
+
 </section>
-
 
 <footer class="footer">
-<div>© <span id="y"></span> QuickChoice Vending</div>
-<nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
+  <div>© <span id="y"></span> QuickChoice Vending</div>
+  <nav class="footer__nav">
+    <a href="./home.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
 </footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

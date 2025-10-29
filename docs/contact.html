@@ -4,21 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Contact</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="general.css" />
 <link rel="stylesheet" href="contact.css" />
 <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
-
-<!-- EmailJS (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  // TODO: put your EmailJS public key here (looks like "ZyXW...").
-  // Create at https://dashboard.emailjs.com/admin
-  document.addEventListener('DOMContentLoaded', () => {
-    emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
-  });
-</script>
 </head>
 
 <body class="page">
@@ -44,43 +33,50 @@
       <p class="form-sub">We typically reply within one business day.</p>
     </div>
 
-    <!-- No action=mailto — we send via EmailJS in JS -->
-    <form class="qform" id="qcForm">
-      <!-- hidden field for snack list -->
-      <input type="hidden" name="snack_list" id="snackField">
-
+    <!-- ✅ USING NEW FORMSPREE ENDPOINT -->
+    <form class="qform" method="POST" action="https://formspree.io/f/mkgpbppr" id="qcForm">
       <div class="qgrid">
+
         <label class="qfield">
-          <span class="qlabel">Your name</span>
-          <input class="qinput" name="name" id="name" placeholder="Jane Doe" required>
+          <span class="qlabel">Your Name</span>
+          <input class="qinput" name="Name" id="nameField" placeholder="Jane Doe" required>
         </label>
 
         <label class="qfield">
           <span class="qlabel">Company / Location</span>
-          <input class="qinput" name="company" id="company" placeholder="Acme HQ • 4th Floor">
+          <input class="qinput" name="Company" id="companyField" placeholder="Acme HQ • 4th Floor">
         </label>
 
         <label class="qfield">
-          <span class="qlabel">Your email</span>
-          <input class="qinput" type="email" name="email" id="email" placeholder="you@company.com" required>
+          <span class="qlabel">Industry</span>
+          <input class="qinput" name="Industry" id="industryField" placeholder="Office, Warehouse, Gym..." />
+        </label>
+
+        <label class="qfield">
+          <span class="qlabel">Your Email</span>
+          <input class="qinput" type="email" name="Email" id="emailField" placeholder="you@company.com" required>
         </label>
 
         <label class="qfield">
           <span class="qlabel">City, State</span>
-          <input class="qinput" name="city" id="city" placeholder="Charleston, SC">
+          <input class="qinput" name="City" id="cityField" placeholder="Charleston, SC">
         </label>
 
         <label class="qfield qfield--full">
-          <span class="qlabel">What are you looking for?</span>
-          <textarea class="qtextarea" name="message" id="message"
+          <span class="qlabel">Message</span>
+          <textarea class="qtextarea" name="Message" id="messageField"
             placeholder="Vending, micro-market, or office snacks? How many people? Any favorites to stock?"
             required></textarea>
         </label>
+
+        <!-- ✅ Hidden fields for Formspree -->
+        <input type="hidden" name="_subject" id="subjectHidden">
+        <input type="hidden" name="_replyto" id="replyToHidden">
+
       </div>
 
       <div class="qactions">
-        <button class="btn-pill" type="submit" id="sendBtn">Send</button>
-        <span class="qnote small" id="statusNote"></span>
+        <button class="btn-pill" type="submit">Send Email</button>
       </div>
     </form>
   </div>
@@ -96,75 +92,32 @@
 </footer>
 
 <script>
-  document.getElementById('y').textContent = new Date().getFullYear();
+document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Pull snacks from URL (?snacks=...)
-  (function(){
-    const params = new URLSearchParams(location.search);
-    const picks = params.get('snacks'); // <-- must match services.js
-    if (!picks) return;
+// Autofill Industry if URL includes ?industry=
+const params = new URLSearchParams(window.location.search);
+if(params.get("industry")){
+  document.getElementById("industryField").value = params.get("industry");
+}
 
-    const ta = document.getElementById('message');
-    const hidden = document.getElementById('snackField');
+// ✅ Compose Subject & set Reply-To before submit
+document.getElementById('qcForm').addEventListener('submit', function () {
+  const company  = (document.getElementById('companyField').value || '').trim();
+  const industry = (document.getElementById('industryField').value || '').trim();
+  const city     = (document.getElementById('cityField').value || '').trim();
+  const email    = (document.getElementById('emailField').value || '').trim();
 
-    const line = `SNACK INVENTORY REQUEST: ${picks}`;
-    hidden.value = line;
+  const parts = [];
+  if (company)  parts.push(company);
+  if (industry) parts.push(industry);
+  if (city)     parts.push(city);
 
-    if (ta && !ta.value.trim()) {
-      ta.value = `${line}\n\nTell us about your location:`;
-    }
-  })();
+  const subject = parts.length ? parts.join(' - ') : 'New QuickChoice Inquiry';
 
-  // Handle EmailJS submit
-  document.getElementById('qcForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const sendBtn = document.getElementById('sendBtn');
-    const statusNote = document.getElementById('statusNote');
-
-    // collect form data
-    const data = {
-      // these keys must match your EmailJS template variables
-      name: document.getElementById('name').value.trim(),
-      company: document.getElementById('company').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      city: document.getElementById('city').value.trim(),
-      message: document.getElementById('message').value.trim(),
-      snack_list: document.getElementById('snackField').value.trim(),
-
-      // Send to multiple recipients (comma separated)
-      to_email: 'parkerjoe365@gmail.com,david.grubbs@quickchoice.net,dante.smith@quickchoice.net',
-      subject: 'QuickChoice Inquiry',
-    };
-
-    // TODO: put your EmailJS IDs here:
-    // - service ID:   e.g. 'service_xxxxxxx'
-    // - template ID:  e.g. 'template_yyyyyyy'
-    const SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
-    const TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
-
-    try {
-      sendBtn.disabled = true;
-      sendBtn.textContent = 'Sending...';
-      statusNote.textContent = 'Sending via secure email…';
-
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, data);
-
-      sendBtn.textContent = 'Sent!';
-      statusNote.textContent = 'Thanks! We’ll get back to you shortly.';
-      // Optional: clear fields after a short delay
-      setTimeout(() => {
-        document.getElementById('qcForm').reset();
-        sendBtn.textContent = 'Send';
-        sendBtn.disabled = false;
-      }, 1500);
-    } catch (err) {
-      console.error(err);
-      sendBtn.textContent = 'Send';
-      sendBtn.disabled = false;
-      statusNote.textContent = 'Error sending. Please try again or email us directly.';
-    }
-  });
+  document.getElementById('subjectHidden').value = subject;
+  document.getElementById('replyToHidden').value = email;
+});
 </script>
+
 </body>
 </html>

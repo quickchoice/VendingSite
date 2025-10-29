@@ -1,13 +1,73 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QuickChoice • Coverage</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="general.css" />
 <link rel="stylesheet" href="coverage.css" />
 <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+
+<style>
+/* ===== Carousel styling (same system as testimonials) ===== */
+.twrap{
+  --edge-fade: 90px;
+  position:relative;
+  max-width:1100px;
+  margin:0 auto;
+  padding:5px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--edge-fade), #000 calc(100% - var(--edge-fade)), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 var(--edge-fade), #000 calc(100% - var(--edge-fade)), transparent);
+}
+.tviewport{ overflow:hidden; }
+.ttrack{
+  display:flex; align-items:center; gap:12px;
+  will-change: transform;
+}
+
+.t-img-card{
+  flex:0 0 auto;
+  min-width:280px; max-width:340px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+  opacity:.32;
+  transform:scale(.92);
+  transition:opacity .25s ease, transform .25s ease;
+}
+.t-img-card.is-center{
+  opacity:1;
+  transform:scale(1.04);
+}
+.t-img-card img{
+  width:100%; height:220px; object-fit:cover;
+}
+
+/* Mobile sizing */
+@media (max-width:720px){
+  .t-img-card{ min-width:75vw; max-width:75vw; }
+  .twrap{ --edge-fade: 40px; }
+}
+@media (min-width:721px) and (max-width:1170px){
+  .t-img-card{ min-width:45vw; max-width:45vw; }
+  .twrap{ --edge-fade: 60px; }
+}
+@media (min-width:1280px){
+  .t-img-card{ min-width:300px; max-width:300px; }
+}
+
+/* Pause on hover */
+.twrap:hover .ttrack,
+.twrap:focus-within .ttrack{
+  animation-play-state: paused;
+}
+</style>
+
 </head>
+
 <body class="page">
 <header class="topbar">
   <a class="topbar__back" href="./index.html">← Selections</a>
@@ -20,29 +80,6 @@
   <p class="hero__sub">Charleston Tri-County • NYC Metro — with partners nationwide.</p>
 </section>
 
-<!-- Photo row (desktop = 1 row of 4) -->
-<section class="section">
-  <div class="centered-narrow">
-    <div class="operate-grid" role="group"
-         aria-label="Images: Charleston — Pineapple Fountain & Ravenel Bridge; New York — Statue of Liberty & NYC Skyline.">
-      <h3 class="pill-header" data-region="sc">South Carolina</h3>
-      <div class="op-frame"><img src="./public/web-assets/pineapple-charleston.jpg" alt="Pineapple Fountain"></div>
-      <div class="op-frame"><img src="./public/web-assets/arthur-bridge.jpg" alt="Ravenel Bridge"></div>
-
-      <h3 class="pill-header" data-region="ny">New York</h3>
-      <div class="op-frame"><img src="./public/web-assets/liberty.jpg" alt="Statue of Liberty"></div>
-      <div class="op-frame"><img src="./public/web-assets/skyline.jpg" alt="NYC Skyline"></div>
-    </div>
-
-    <div class="pill-row" style="margin-top:12px">
-      <span class="pill">Charleston, SC — Tri-County area</span>
-      <span class="pill">New York, NY — Metropolitan area</span>
-      <span class="pill">Nationwide partnerships — ask us</span>
-    </div>
-  </div>
-</section>
-
-<!-- Service Area Maps -->
 <section class="section">
   <div class="centered-narrow">
     <h2 class="section__title">Service Area Maps</h2>
@@ -55,9 +92,7 @@
           <strong class="map-title">Charleston Tri-County</strong>
         </header>
         <figure class="map-figure">
-          <!-- Replace with your real file -->
-          <img src="./public/web-assets/tri-country.png"
-               alt="Map of Charleston Tri-County service area">
+          <img src="./public/web-assets/tri-country.png" alt="Map of Charleston Tri-County service area">
         </figure>
         <footer class="map-meta">
           <span>Primary: Charleston • North Charleston • Mount Pleasant</span>
@@ -73,9 +108,7 @@
           <strong class="map-title">NYC Metro</strong>
         </header>
         <figure class="map-figure">
-          <!-- Replace with your real file -->
-          <img src="./public/web-assets/metro.png"
-               alt="Map of NYC Metro service area">
+          <img src="./public/web-assets/metro.png" alt="Map of NYC Metro service area">
         </figure>
         <footer class="map-meta">
           <span>Primary: Manhattan • Brooklyn • Queens</span>
@@ -84,19 +117,129 @@
         </footer>
       </article>
     </div>
+  </div>
+</section>
 
-    <!-- Optional CTA strip -->
+<!-- NEW AUTO-SCROLL CAROUSEL -->
+<section class="section">
+  <div class="centered-narrow">
+    <h2 class="section__title">Proudly Serving These Communities</h2>
+
+    <div class="twrap" aria-label="Charleston & New York scenic carousel">
+      <div class="tviewport" id="pview">
+        <div id="ptrack" class="ttrack">
+          
+          <!-- Charleston -->
+          <figure class="t-img-card">
+            <img src="./public/web-assets/pineapple-charleston.jpg" alt="Pineapple Fountain, Charleston SC">
+          </figure>
+          <figure class="t-img-card">
+            <img src="./public/web-assets/arthur-bridge.jpg" alt="Ravenel Bridge, Charleston SC">
+          </figure>
+
+          <!-- NYC -->
+          <figure class="t-img-card">
+            <img src="./public/web-assets/liberty.jpg" alt="Statue of Liberty, NYC">
+          </figure>
+          <figure class="t-img-card">
+            <img src="./public/web-assets/skyline.jpg" alt="NYC Skyline">
+          </figure>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="pill-row" style="margin-top:10px">
+      <span class="pill">Charleston, SC — Tri-County area</span>
+      <span class="pill">New York, NY — Metropolitan area</span>
+    </div>
+
     <div class="map-cta">
       <a class="btn-pill" href="./contact.html">Confirm Your Address</a>
-      <a class="btn-ghost" href="./partnership.html">Partner With Us</a>
     </div>
   </div>
 </section>
 
 <footer class="footer">
   <div>© <span id="y"></span> QuickChoice Vending</div>
-  <nav class="footer__nav"><a href="./home.html">Home</a><a href="./services.html">Services</a><a href="./contact.html">Contact</a></nav>
+  <nav class="footer__nav">
+    <a href="./home.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
 </footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+<script>
+  // ===== Auto-scroll carousel for coverage images =====
+  (function(){
+    const viewport = document.getElementById('pview');
+    const track = document.getElementById('ptrack');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const items = Array.from(track.children);
+    items.forEach(n => track.appendChild(n.cloneNode(true))); // duplicate for seamless loop
+
+    let x = 0;
+    let speed = 1;
+    let raf = null;
+    let loopWidth = 0;
+
+    function singleWidth(){
+      const prev = track.style.transform;
+      track.style.transform = 'translateX(0px)';
+      const w = track.scrollWidth / 2;
+      track.style.transform = prev || '';
+      return w;
+    }
+
+    function highlight(){
+      const rectV = viewport.getBoundingClientRect();
+      const centerX = rectV.left + rectV.width/2;
+      const cards = track.querySelectorAll('.t-img-card');
+
+      cards.forEach(card => {
+        const r = card.getBoundingClientRect();
+        const c = r.left + r.width/2;
+        const d = Math.abs(c - centerX);
+        const max = rectV.width/2;
+        const t = Math.max(0, Math.min(1, 1 - d/max));
+        const op = .32 + t*.68;
+        const sc = .92 + t*.12;
+        card.style.opacity = op.toFixed(3);
+        card.style.transform = `scale(${sc.toFixed(3)})`;
+        if(t > .8) card.classList.add('is-center');
+        else card.classList.remove('is-center');
+      });
+    }
+
+    function step(){
+      x -= speed;
+      if(-x >= loopWidth){
+        x += loopWidth;
+      }
+      track.style.transform = `translateX(${x}px)`;
+      highlight();
+      raf = requestAnimationFrame(step);
+    }
+
+    function pause(){ if(raf){ cancelAnimationFrame(raf); raf=null; } }
+    function resume(){ if(!raf && !prefersReduced){ raf=requestAnimationFrame(step); } }
+
+    window.addEventListener('visibilitychange',()=>document.hidden?pause():resume());
+    window.addEventListener('resize',()=>{
+      loopWidth = singleWidth();
+      x = ((x % loopWidth)+loopWidth)%loopWidth * -1;
+      track.style.transform=`translateX(${x}px)`;
+      highlight();
+    });
+
+    loopWidth = singleWidth();
+    highlight();
+    if(!prefersReduced) resume();
+
+    document.getElementById('y').textContent=new Date().getFullYear();
+  })();
+</script>
+
 </body>
 </html>

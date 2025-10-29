@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -8,85 +9,42 @@
 <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
 
 <style>
-  /* ===== Auto Carousel (uses your brand tokens) ===== */
-  .twrap{
-    --edge-fade: 90px;             /* edge fade width */
-    position:relative;
-    max-width:1100px;
-    margin:0 auto;
-    padding:10px 0;
-    /* Edge fading with mask (supported in modern browsers) */
-    -webkit-mask-image: linear-gradient(to right, transparent, #000  var(--edge-fade), #000 calc(100% - var(--edge-fade)), transparent);
-            mask-image: linear-gradient(to right, transparent, #000  var(--edge-fade), #000 calc(100% - var(--edge-fade)), transparent);
+  /* Lightweight page-specific polish */
+  .soon-wrap{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 18px;
   }
-  .tviewport{
-    overflow:hidden;
+  .soon-card{
+    background: linear-gradient(180deg,#fff9ec,#fdecd2);
+    border: 1.5px solid var(--rim);
+    border-radius: var(--r-xl);
+    box-shadow: var(--lift);
+    padding: 24px;
+    text-align: center;
   }
-  .ttrack{
-    display:flex; align-items:stretch; gap:14px;
-    will-change: transform;
+  .soon-title{
+    margin: 0 0 8px 0;
+    font-family: "Playfair Display", serif;
+    color: #0c2c41;
+    font-size: clamp(22px, 3.2vw, 28px);
   }
-
-  /* Cream pill cards */
-  .t-card{
-    flex:0 0 auto;
-    min-width:320px; max-width:360px;
-    background:linear-gradient(180deg,#fff9ec,#fdecd2);
-    border:1.5px solid var(--rim);
-    border-radius:var(--r-xl);
-    padding:18px;
-    box-shadow:var(--lift);
-    display:flex; flex-direction:column; gap:10px;
-    opacity:.35;                     /* default faded; JS raises near center */
-    transform:scale(.96);
-    transition: opacity .25s ease, transform .25s ease;
+  .soon-sub{
+    margin: 0 0 18px 0;
+    color: var(--muted);
   }
-  .t-card.is-center{
-    opacity:1;
-    transform:scale(1.02);
-  }
-
-  .t-stars{ display:inline-flex; gap:4px; }
-  .t-stars svg{ width:18px; height:18px; }
-  .t-quote{ margin:0; color:#0c2c41; font-weight:600; }
-  .t-author{ margin:0; color:var(--muted); font-size:14px; }
-
-  /* CTA strip */
-  .review-cta{
-    margin:28px auto 0; text-align:center;
-    display:grid; gap:10px; justify-items:center;
-  }
-  .review-cta h3{ margin:0; font-family:"Playfair Display", serif; color:#0c2c41 }
   .review-btn{
-    display:inline-block; font-weight:800; color:#1a4c74;
+    display:inline-block;
+    font-weight:800;
+    color:#1a4c74;
     background:linear-gradient(180deg,#fff9ec,#ffe7c1);
-    border:1.5px solid var(--rim); border-radius:var(--r-pill);
-    padding:12px 18px; text-decoration:none; box-shadow:var(--lift)
+    border:1.5px solid var(--rim);
+    border-radius: var(--r-pill);
+    padding:12px 18px;
+    text-decoration:none;
+    box-shadow: var(--lift);
   }
-
-  /* Simple 3-range sizing to match your site */
-  @media (max-width:720px){
-    .t-card{ min-width:82vw; max-width:82vw }
-    .twrap{ --edge-fade: 40px; }
-  }
-  @media (min-width:721px) and (max-width:1170px){
-    .t-card{ min-width:46vw; max-width:46vw }
-    .twrap{ --edge-fade: 60px; }
-  }
-  @media (min-width:1280px){
-    .t-card{ min-width:340px; max-width:340px }
-  }
-
-  /* Pause on hover/focus for accessibility */
-  .twrap:hover .ttrack,
-  .twrap:focus-within .ttrack{
-    animation-play-state: paused;
-  }
-
-  /* Respect reduced motion: stop auto scroll + full opacity */
-  @media (prefers-reduced-motion: reduce){
-    .t-card{ opacity:1; transform:none }
-  }
+  .review-btn:focus-visible{ outline: 3px solid #ffda7a; outline-offset: 3px; }
 </style>
 </head>
 
@@ -98,72 +56,18 @@
 </header>
 
 <section class="hero hero--cream">
-  <h1 class="script hero__script">What Partners Say</h1>
+  <h1 class="script hero__script">Testimonials</h1>
 </section>
 
 <section class="section">
-<div class="twrap" aria-label="Customer testimonials carousel">
-  <div class="tviewport" id="tview">
-    <div id="ttrack" class="ttrack" role="list">
-        <!-- Cards (5-star by default) -->
-        <figure class="t-card" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 6">
-          <div class="t-stars" aria-label="5 out of 5 stars">
-            <!-- 5 stars -->
-            <svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-          </div>
-          <blockquote class="t-quote">“QuickChoice made setup effortless — zero maintenance on our end.”</blockquote>
-          <figcaption class="t-author">Facilities Lead, Tech Startup</figcaption>
-        </figure>
-
-        <figure class="t-card" aria-label="Testimonial 2 of 6">
-          <div class="t-stars" aria-label="5 out of 5 stars">
-            <svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-          </div>
-          <blockquote class="t-quote">“Sales transparency + profit share = a win for our team.”</blockquote>
-          <figcaption class="t-author">Office Manager, Co-working Space</figcaption>
-        </figure>
-
-        <figure class="t-card" aria-label="Testimonial 3 of 6">
-          <div class="t-stars" aria-label="5 out of 5 stars">
-            <svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-          </div>
-          <blockquote class="t-quote">“Employees love the fresh rotations and cashless checkout.”</blockquote>
-          <figcaption class="t-author">HR Director, Manufacturing</figcaption>
-        </figure>
-
-        <figure class="t-card" aria-label="Testimonial 4 of 6">
-          <div class="t-stars" aria-label="5 out of 5 stars">
-            <svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-          </div>
-          <blockquote class="t-quote">“Installs were fast, reporting is simple, service is on point.”</blockquote>
-          <figcaption class="t-author">Ops Manager, Distribution</figcaption>
-        </figure>
-
-        <figure class="t-card" aria-label="Testimonial 5 of 6">
-          <div class="t-stars" aria-label="5 out of 5 stars">
-            <svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-          </div>
-          <blockquote class="t-quote">“Item requests are taken seriously—selection actually reflects staff.”</blockquote>
-          <figcaption class="t-author">Administrator, Healthcare</figcaption>
-        </figure>
-
-        <figure class="t-card" aria-label="Testimonial 6 of 6">
-          <div class="t-stars" aria-label="5 out of 5 stars">
-            <svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg><svg viewBox="0 0 24 24" fill="#F5B301"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-          </div>
-          <blockquote class="t-quote">“Great communication. We always know stock status and service plans.”</blockquote>
-          <figcaption class="t-author">Property Manager, Commercial</figcaption>
-        </figure>
-      </div>
+  <div class="soon-wrap">
+    <div class="soon-card" role="status" aria-live="polite">
+      <h2 class="soon-title">Partner testimonials are coming soon</h2>
+      <p class="soon-sub">In the meantime, we’d be grateful if you shared your experience with QuickChoice.</p>
+      <a class="review-btn" href="https://g.page/r/YOUR-GOOGLE-REVIEW-LINK" target="_blank" rel="noopener">
+        Leave a Google Review
+      </a>
     </div>
-  </div>
-
-  <!-- Review CTA -->
-  <div class="review-cta">
-    <h3>Satisfied? Leave a review</h3>
-    <a class="review-btn" href="https://g.page/r/YOUR-GOOGLE-REVIEW-LINK" target="_blank" rel="noopener">
-      Leave a Google Review
-    </a>
   </div>
 </section>
 
@@ -175,95 +79,9 @@
     <a href="./contact.html">Contact</a>
   </nav>
 </footer>
+
 <script>
-  // ===== Auto-scrolling, infinite loop, fade toward center (transform-based) =====
-  (function(){
-    const viewport = document.getElementById('tview');   // the visible window
-    const track    = document.getElementById('ttrack');   // the moving strip
-    const wrapper  = document.querySelector('.twrap');
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // 1) Duplicate children once for seamless loop
-    const items = Array.from(track.children);
-    items.forEach(node => track.appendChild(node.cloneNode(true)));
-
-    // 2) Animation state
-    let x = 0;                 // current translateX
-    let speed = 1;           // pixels per frame (tweak to taste)
-    let rafId = null;
-
-    // 3) Compute the width of a single set (half of the track after cloning)
-    function singleSetWidth(){
-      // After cloning, half of scrollWidth (approx). Using getBoundingClientRect is more reliable with transforms paused.
-      const prev = track.style.transform;
-      track.style.transform = 'translateX(0px)';   // neutralize while measuring
-      const width = track.scrollWidth / 2;
-      track.style.transform = prev || '';
-      return width;
-    }
-    let loopWidth = 0;
-
-    // 4) Fade/scale cards based on distance to the center of the viewport
-    function highlightCenter(){
-      const rectV = viewport.getBoundingClientRect();
-      const centerX = rectV.left + rectV.width / 2;
-      const cards = track.querySelectorAll('.t-card');
-
-      cards.forEach(card => {
-        const r = card.getBoundingClientRect(); // includes current transform
-        const cardCenter = r.left + r.width / 2;
-        const d = Math.abs(cardCenter - centerX);
-        const maxD = rectV.width / 2; // half viewport
-        const t = Math.max(0, Math.min(1, 1 - d / maxD));
-        const op = 0.35 + t * 0.65;       // 0.35..1
-        const scale = 0.96 + t * 0.06;    // .96..1.02
-        card.style.opacity = op.toFixed(3);
-        card.style.transform = `scale(${scale.toFixed(3)})`;
-      });
-    }
-
-    // 5) Main loop
-    function step(){
-      x -= speed;
-      if (-x >= loopWidth) {
-        // When we’ve shifted by one full set, jump forward by that width
-        x += loopWidth;
-      }
-      track.style.transform = `translateX(${x}px)`;
-      highlightCenter();
-      rafId = requestAnimationFrame(step);
-    }
-
-    // 6) Pause/resume on interactions & page visibility
-    function pause(){ if (rafId) cancelAnimationFrame(rafId); rafId = null; }
-    function resume(){ if (!rafId && !prefersReduced) rafId = requestAnimationFrame(step); }
-
-    wrapper.addEventListener('mouseleave', resume);
-
-    wrapper.addEventListener('focusout', resume);
-    window.addEventListener('visibilitychange', () => document.hidden ? pause() : resume());
-    window.addEventListener('resize', () => { 
-      // Recompute loop width & snap transform to keep things seamless
-
-    
-      loopWidth = singleSetWidth();
-      // Keep x within [-loopWidth, 0]
-      x = ((x % loopWidth) + loopWidth) % loopWidth * -1;
-      track.style.transform = `translateX(${x}px)`;
-      highlightCenter();
-      if (!wasPaused) resume();
-    });
-
-    // 7) Kickoff
-    loopWidth = singleSetWidth();
-    track.style.willChange = 'transform';
-    highlightCenter();
-    if (!prefersReduced) resume();
-
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  })();
+  document.getElementById('y').textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
