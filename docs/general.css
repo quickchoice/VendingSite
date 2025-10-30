@@ -242,3 +242,11 @@ img{ max-width:100%; height:auto; display:block; }
   .ring{ grid-template-columns:1fr; }
   .ring__center{ grid-column:auto; grid-row:auto; }
 }
+/* Mobile refinement for topbar CTA */
+@media (max-width:760px){
+  .topbar__cta{
+    font-size:13px;         /* slightly smaller text */
+    padding:6px 12px;        /* reduces width on smaller screens */
+    border-width:1px;
+  }
+}
