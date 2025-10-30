@@ -213,8 +213,8 @@ body {
 @media (max-aspect-ratio: 9/10){
   :root{
     --fit-margin: 20px;
-    --fit-scale-mult: 0.95;
-  --fit-nudge-y: 75px;
+    --fit-scale-mult: 0.87;
+  --fit-nudge-y: 63px;
   }
   body{
     background-image:url("./public/web-assets/office-phone.png");

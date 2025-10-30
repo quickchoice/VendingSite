@@ -56,7 +56,8 @@
 }
 
 /* Make sure the glass card stays above the background */
-.form-card.glass{ position: relative; z-index: 1; }
+.form-card.glass{ position: relative; z-index: 1;
+opacity:67% }
 
 
 @keyframes floatUp {
