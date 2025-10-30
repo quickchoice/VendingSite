@@ -108,3 +108,26 @@
 .footer {
   margin-top: 40px;
 }
+/* ===== Contact strip inside profile cards ===== */
+.profile-contact {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #f8f9fb;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.profile-contact a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.profile-contact a:hover {
+  text-decoration: underline;
+}

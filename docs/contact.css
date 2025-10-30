@@ -155,3 +155,10 @@ opacity:67% }
 .footer {
   margin-top: 50px;
 }
+/* small gray italic (optional) text */
+.qopt {
+  font-style: italic;
+  font-size: 12px;
+  color: #7b8894; /* muted gray */
+  margin-left: 2px;
+}
