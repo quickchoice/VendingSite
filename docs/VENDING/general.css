@@ -1,6 +1,6 @@
 /* =================== QuickChoice • General Stylesheet (shared across content pages) ===================
    Load this on: home.html, about.html, services.html, industries.html, coverage.html, partnership.html, testimonials.html, contact.html
-   Do NOT load on index.html (vending machine page uses styles.css / index.css).
+   Do NOT load on vendinghome.html (vending machine page uses styles.css / index.css).
 */
 
 /* ========= Design tokens ========= */
