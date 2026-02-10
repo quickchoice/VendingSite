@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickChoice Rental | Browse Rentals</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/app.js"></script>
+</head>
+<body data-page="category">
+  <header class="navbar">
+    <a class="logo-link" href="../index.html" aria-label="QuickChoice Rental home">
+      <img class="logo-img" src="visual/logo.png" alt="QuickChoice Rental" />
+    </a>
+    <nav class="main-nav">
+      <a href="category.html?cat=baby">Baby Equipment</a>
+      <a href="category.html?cat=beach">Beach Gear</a>
+      <a href="category.html?cat=access">Handicap Options</a>
+      <a href="../index.html#how">How It Works</a>
+      <a href="../index.html#trust">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn secondary" href="../index.html#fast-start">Start an Order</a>
+      <button class="cart-btn" data-cart-open>
+        Cart <span data-cart-count>0</span> • <span data-cart-subtotal>$0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div>
+        <p class="eyebrow" data-category-badge>Category</p>
+        <h1 data-category-title>Baby Equipment</h1>
+        <p class="subhead" data-category-intro>
+          Clean, comfort-first essentials delivered to your rental.
+        </p>
+      </div>
+      <div class="filter-row">
+        <input type="search" placeholder="Search items" data-product-search />
+        <select data-product-sort>
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="bundles">
+      <div class="section-header">
+        <h2>Featured bundles</h2>
+        <p class="muted">Best value, fewer decisions.</p>
+      </div>
+      <div class="card-grid" data-bundles-grid></div>
+    </section>
+
+    <section class="products">
+      <div class="section-header">
+        <h2>Quick add items</h2>
+        <p class="muted">Tap once to add to cart.</p>
+      </div>
+      <div class="card-grid" data-products-grid></div>
+    </section>
+  </main>
+
+  <button class="floating-checkout btn primary" data-floating-checkout>Checkout</button>
+
+  <div class="cart-drawer" data-cart-drawer>
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="icon-btn" data-cart-close aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" data-cart-items></div>
+    <div class="cart-meta">
+      <h4>Trip summary</h4>
+      <div class="meta-row"><span>Location</span><span data-meta-location>—</span></div>
+      <div class="meta-row"><span>Dates</span><span data-meta-dates>—</span></div>
+      <div class="meta-row"><span>Delivery</span><span data-meta-address>—</span></div>
+    </div>
+    <div class="cart-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <strong data-cart-subtotal>$0</strong>
+      </div>
+      <a class="btn primary full" href="checkout.html">Checkout</a>
+    </div>
+  </div>
+
+  <div class="mobile-cart-bar" data-mobile-cart>
+    <button class="btn primary full" data-cart-open>View Cart • <span data-cart-subtotal>$0</span></button>
+  </div>
+</body>
+</html>

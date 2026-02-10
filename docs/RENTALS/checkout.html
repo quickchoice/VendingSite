@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickChoice Rental | Checkout</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/app.js"></script>
+</head>
+<body data-page="checkout">
+  <header class="navbar">
+    <a class="logo-link" href="../index.html" aria-label="QuickChoice Rental home">
+      <img class="logo-img" src="visual/logo.png" alt="QuickChoice Rental" />
+    </a>
+    <nav class="main-nav">
+      <a href="category.html?cat=baby">Baby Equipment</a>
+      <a href="category.html?cat=beach">Beach Gear</a>
+      <a href="category.html?cat=access">Handicap Options</a>
+      <a href="../index.html#how">How It Works</a>
+      <a href="../index.html#trust">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn secondary" href="../index.html#fast-start">Start an Order</a>
+      <button class="cart-btn" data-cart-open>
+        Cart <span data-cart-count>0</span> • <span data-cart-subtotal>$0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="checkout-flow">
+      <div class="card checkout-step active" data-step="1">
+        <h2>Your trip details</h2>
+        <form data-order-meta-form>
+          <div class="calendar-card" data-calendar>
+            <div class="calendar-header">
+              <button type="button" class="icon-btn" data-cal-prev aria-label="Previous month">‹</button>
+              <div class="calendar-month" data-cal-month>February</div>
+              <button type="button" class="icon-btn" data-cal-next aria-label="Next month">›</button>
+            </div>
+            <div class="calendar-weekdays">
+              <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+            </div>
+            <div class="calendar-grid" data-cal-grid></div>
+            <div class="calendar-selected" data-cal-selected>Pick start and end dates</div>
+          </div>
+          <div class="location-toggle" data-location-toggle>
+            <button type="button" class="seg-btn" data-location="chs">Charleston</button>
+            <button type="button" class="seg-btn" data-location="myr">Myrtle Beach</button>
+          </div>
+          <input type="hidden" name="startDate" required />
+          <input type="hidden" name="endDate" required />
+          <label>
+            Delivery address or hotel
+            <input type="text" name="deliveryAddress" required />
+          </label>
+          <p class="form-error" data-form-error></p>
+          <button class="btn primary full" type="button" data-next-step="2">Next</button>
+        </form>
+      </div>
+
+      <div class="card checkout-step" data-step="2">
+        <h2>Contact information</h2>
+        <form data-checkout-form>
+          <label>
+            Name
+            <input type="text" name="fullName" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" required />
+          </label>
+          <label>
+            Delivery notes
+            <textarea name="notes" rows="3" placeholder="Gate codes, floor, parking tips"></textarea>
+          </label>
+          <p class="form-error" data-checkout-error></p>
+          <button class="btn primary full" type="button" data-next-step="3">Next</button>
+        </form>
+      </div>
+
+      <div class="card checkout-step" data-step="3">
+        <h2>Order summary</h2>
+        <div class="summary-meta">
+          <div><strong>Name</strong><span data-summary-name>—</span></div>
+          <div><strong>Email</strong><span data-summary-email>—</span></div>
+          <div><strong>Dates Selected</strong><span data-summary-dates>—</span></div>
+          <div><strong>Address</strong><span data-summary-address>—</span></div>
+          <div><strong>Location</strong><span data-summary-location>—</span></div>
+        </div>
+        <div class="cart-items" data-cart-items></div>
+        <div class="subtotal-row">
+          <span>Subtotal</span>
+          <strong data-cart-subtotal>$0</strong>
+        </div>
+        <p class="muted small">Pricing reflects your selected dates.</p>
+        <p class="muted small">Payment handled securely by Stripe.</p>
+        <button class="btn primary full" type="button" data-checkout-submit>Pay Now</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-drawer" data-cart-drawer>
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="icon-btn" data-cart-close aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" data-cart-items></div>
+    <div class="cart-meta">
+      <h4>Trip summary</h4>
+      <div class="meta-row"><span>Location</span><span data-meta-location>—</span></div>
+      <div class="meta-row"><span>Dates</span><span data-meta-dates>—</span></div>
+      <div class="meta-row"><span>Delivery</span><span data-meta-address>—</span></div>
+    </div>
+    <div class="cart-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <strong data-cart-subtotal>$0</strong>
+      </div>
+      <a class="btn primary full" href="checkout.html">Checkout</a>
+    </div>
+  </div>
+
+  
+
+  <script>
+    const STRIPE_PUBLISHABLE_KEY = "pk_test_REPLACE_ME";
+    async function startStripeCheckout(cart, orderMeta) {
+      // TODO: send cart + meta to backend to create Stripe Checkout session
+    }
+  </script>
+</body>
+</html>

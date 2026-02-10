@@ -1,0 +1,11 @@
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+  xmlns="http://www.w3.org/2000/svg" aria-label="Easy checkout">
+  <path d="M4 7H20V17H4V7Z"
+    stroke="#22465e" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M4 10H20"
+    stroke="#22465e" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M7 14H11"
+    stroke="#22465e" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M17.5 5.5L18 4L18.5 5.5L20 6L18.5 6.5L18 8L17.5 6.5L16 6L17.5 5.5Z"
+    stroke="#22465e" stroke-width="1.4" stroke-linejoin="round"/>
+</svg>

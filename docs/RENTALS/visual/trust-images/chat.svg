@@ -1,0 +1,9 @@
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+  xmlns="http://www.w3.org/2000/svg" aria-label="Text support">
+  <path d="M5 6H19V16H8L5 19V6Z"
+    stroke="#22465e" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M8 10H16"
+    stroke="#22465e" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M8 13H13"
+    stroke="#22465e" stroke-width="1.7" stroke-linecap="round"/>
+</svg>
