@@ -1,156 +1,63 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QuickChoice Rental | Coastal Vacation Rentals Delivered</title>
-  <link rel="stylesheet" href="RENTALS/assets/styles.css" />
-  <script defer src="RENTALS/assets/app.js"></script>
-</head>
-<body data-page="home" class="home">
-  <header class="navbar">
-    <a class="logo-link" href="index.html" aria-label="QuickChoice Rental home">
-      <img class="logo-img" src="RENTALS/visual/logo.png" alt="QuickChoice Rental" />
-    </a>
-    <nav class="main-nav">
-      <a href="RENTALS/category.html?cat=baby">Baby Equipment</a>
-      <a href="RENTALS/category.html?cat=beach">Beach Gear</a>
-      <a href="RENTALS/category.html?cat=access">Handicap Options</a>
-      <a href="#how">How It Works</a>
-      <a href="#trust">FAQ</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn secondary" href="#fast-start">Start an Order</a>
-      <button class="cart-btn" data-cart-open>
-        Cart <span data-cart-count>0</span> • <span data-cart-subtotal>$0</span>
-      </button>
-    </div>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuickChoice • Pick a Selection</title>
+    <meta name="description" content="Smart Vending, Made Simple. Choose a selection." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&family=Allura&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./public/web-assets/favicon.png">
+  </head>
 
-  <section class="hero-carousel" aria-label="Featured rentals">
-    <div class="carousel-track" data-carousel-track>
-      <div class="carousel-slide" style="background-image:url('RENTALS/visual/carosel-images/crib.png')"></div>
-      <div class="carousel-slide" style="background-image:url('RENTALS/visual/carosel-images/peopleatbeach.webp')"></div>
-    </div>
-  </section>
-
-  <section class="hero-shell">
-    <div class="hero-content">
-      <h1>Vacation rentals, delivered to your door.</h1>
-      <p class="subhead">
-        Baby gear, beach gear, and accessibility essentials in Charleston & Myrtle Beach —
-        clean, on-time, and effortless.
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary" href="RENTALS/category.html?cat=baby">Browse Baby Gear</a>
-        <a class="btn secondary" href="RENTALS/category.html?cat=beach">Browse Beach Gear</a>
-      </div>
-      <div class="trust-row">
-        <div class="trust-item">
-          <img class="trust-icon" src="RENTALS/visual/trust-images/shield.svg" alt="" />
-          Sanitized & inspected
-        </div>
-        <div class="trust-item">
-          <img class="trust-icon" src="RENTALS/visual/trust-images/truck.svg" alt="" />
-          Delivery + pickup
-        </div>
-        <div class="trust-item">
-          <img class="trust-icon" src="RENTALS/visual/trust-images/chat.svg" alt="" />
-          Text support
-        </div>
-        <div class="trust-item">
-          <img class="trust-icon" src="RENTALS/visual/trust-images/pay.svg" alt="" />
-          Easy checkout
-        </div>
-      </div>
-      <a class="access-link" href="RENTALS/category.html?cat=access">Need accessibility options? →</a>
-    </div>
-  </section>
-
-  <main>
-    <section id="fast-start" class="split-panels">
-      <div class="card plan-card">
-        <h2>Plan your trip in seconds</h2>
-        <form class="fast-start-form" data-order-meta-form>
-          <div class="calendar-card" data-calendar>
-            <div class="calendar-header">
-              <button type="button" class="icon-btn" data-cal-prev aria-label="Previous month">‹</button>
-              <div class="calendar-month" data-cal-month>February</div>
-              <button type="button" class="icon-btn" data-cal-next aria-label="Next month">›</button>
+  <body>
+    <main class="vm" aria-label="QuickChoice navigation selections">
+      <div class="vm__stack">
+        <div class="vm__cabinet vm__cabinet--matnewlinenewlinenewlinete">
+          <!-- Lightbox brand sign -->
+          <header class="vm__sign">
+            <div class="vm__sign-inner">
+              <h1 class="vm__brand">QuickChoice</h1>
+              <p class="vm__motto">Vending Solutions</p>
             </div>
-            <div class="calendar-weekdays">
-              <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+          </header>
+
+          <div class="vm__center">
+            <!-- TICKER -->
+            <div class="vm__ticker" id="ticker">
+              <span class="vm__ticker-text" id="tickerText">Please make a selection</span>
             </div>
-            <div class="calendar-grid" data-cal-grid></div>
-            <div class="calendar-selected" data-cal-selected>Pick start and end dates</div>
-          </div>
-          <input type="hidden" name="startDate" required />
-          <input type="hidden" name="endDate" required />
-          <label class="full">
-            Hotel, Airbnb, or address
-            <input type="text" name="deliveryAddress" placeholder="e.g., Oceanfront Resort, 123 Shoreline Dr" required />
-          </label>
-          <button class="btn primary full" type="submit">See Baby Gear</button>
-          <p class="muted small">Most orders take under 2 minutes.</p>
-          <p class="form-error" data-form-error></p>
-        </form>
-      </div>
 
-      <div class="card how-card" id="how">
-        <div class="how-header">
-          <h2>How it works</h2>
-          <p class="muted">In Charleston & Myrtle Beach.</p>
-        </div>
-        <div class="how-steps">
-          <div class="how-step">
-            <div class="step-image" data-step="1"></div>
-            <strong>1</strong>
-            <span>Pick your gear</span>
+            <!-- Button Grid -->
+            <section class="vm__panel">
+              <nav class="vm__grid vm__grid--2col" id="vending-grid">
+                <a class="vm__btn vm__btn--cream"  href="./VENDING/home.html"><span>Home</span></a>
+                <a class="vm__btn vm__btn--teal"   href="./VENDING/about.html"><span>About&nbsp;Us</span></a>
+                <a class="vm__btn vm__btn--red"    href="./VENDING/services.html"><span>Services</span></a>
+                <a class="vm__btn vm__btn--green"  href="./VENDING/industries.html"><span>Industries</span></a>
+                <a class="vm__btn vm__btn--navy"   href="./VENDING/coverage.html"><span>Coverage</span></a>
+                <a class="vm__btn vm__btn--orange" href="./VENDING/testimonials.html"><span>Testimonials</span></a>
+                <a class="vm__btn vm__btn--sand"   href="./VENDING/partnership.html"><span>Partnership</span></a>
+                <a class="vm__btn vm__btn--blue"   href="./VENDING/contact.html"><span>Contact</span></a>
+              </nav>
+            </section>
           </div>
-          <div class="how-step">
-            <div class="step-image" data-step="2"></div>
-            <strong>2</strong>
-            <span>We deliver + pick up</span>
-          </div>
-          <div class="how-step">
-            <div class="step-image" data-step="3"></div>
-            <strong>3</strong>
-            <span>Enjoy your trip</span>
+
+          <!-- Lower Section -->
+          <div class="vm__lower">
+            <img src="./public/web-assets/snackslot.png" alt="Bill slot"  class="vm__bill-img" />
+            <img src="./public/web-assets/coinslot.png" alt="Coin slot"  class="vm__coin-img" />
           </div>
         </div>
-        <p class="muted small">No location menus—just pick dates and book.</p>
+
+        <!-- Vending machine legs -->
+        <figure class="vm__below">
+          <img src="./public/web-assets/leg-shadow.png" alt="Vending machine legs" loading="lazy" />
+        </figure>
       </div>
-    </section>
+    </main>
 
-    <section id="trust" class="rating-row">
-      <div class="stars">★★★★★</div>
-      <p>Rated 5-star by families vacationing in Charleston and Myrtle Beach.</p>
-    </section>
-  </main>
-
-  <div class="cart-drawer" data-cart-drawer>
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="icon-btn" data-cart-close aria-label="Close cart">×</button>
-    </div>
-    <div class="cart-items" data-cart-items></div>
-    <div class="cart-meta">
-      <h4>Trip summary</h4>
-      <div class="meta-row"><span>Location</span><span data-meta-location>—</span></div>
-      <div class="meta-row"><span>Dates</span><span data-meta-dates>—</span></div>
-      <div class="meta-row"><span>Delivery</span><span data-meta-address>—</span></div>
-    </div>
-    <div class="cart-footer">
-      <div class="subtotal-row">
-        <span>Subtotal</span>
-        <strong data-cart-subtotal>$0</strong>
-      </div>
-      <a class="btn primary full" href="RENTALS/checkout.html">Checkout</a>
-    </div>
-  </div>
-
-  <div class="mobile-cart-bar" data-mobile-cart>
-    <button class="btn primary full" data-cart-open>View Cart • <span data-cart-subtotal>$0</span></button>
-  </div>
-</body>
+    <script src="./VENDING/app.js" defer></script>
+  </body>
 </html>
+
