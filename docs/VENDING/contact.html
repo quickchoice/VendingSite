@@ -42,27 +42,25 @@
           <input class="qinput" name="Name" id="nameField" placeholder="Jane Doe" required>
         </label>
 
-    <label class="qfield">
-  <span class="qlabel">Company / Location <span class="qopt">(optional)</span></span>
-  <input class="qinput" name="Company" id="companyField" placeholder="Acme HQ • 4th Floor">
-</label>
-<label class="qfield">
-  <span class="qlabel">Industry <span class="qopt">(optional)</span></span>
-  <input class="qinput" name="Industry" id="industryField" placeholder="Office, Warehouse, Gym..." />
-</label>
+        <label class="qfield">
+          <span class="qlabel">Company / Location</span>
+          <input class="qinput" name="Company" id="companyField" placeholder="Acme HQ • 4th Floor">
+        </label>
+
+        <label class="qfield">
+          <span class="qlabel">Industry</span>
+          <input class="qinput" name="Industry" id="industryField" placeholder="Office, Warehouse, Gym..." />
+        </label>
 
         <label class="qfield">
           <span class="qlabel">Your Email</span>
           <input class="qinput" type="email" name="Email" id="emailField" placeholder="you@company.com" required>
         </label>
-<label class="qfield">
-  <span class="qlabel">Phone <span class="qopt">(optional)</span></span>
-  <input class="qinput" type="tel" name="Phone" id="phoneField" placeholder="(555) 555-1234">
-</label>
-<label class="qfield">
-  <span class="qlabel">City, State <span class="qopt">(optional)</span></span>
-  <input class="qinput" name="City" id="cityField" placeholder="Charleston, SC">
-</label>
+
+        <label class="qfield">
+          <span class="qlabel">City, State</span>
+          <input class="qinput" name="City" id="cityField" placeholder="Charleston, SC">
+        </label>
 
         <label class="qfield qfield--full">
           <span class="qlabel">Message</span>
@@ -96,26 +94,13 @@
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
 
+// Autofill Industry if URL includes ?industry=
 const params = new URLSearchParams(window.location.search);
-
-// ✅ Prefill snacks from Services: ?snacks=...
-const snacksParam = params.get("snacks");
-if (snacksParam) {
-  const list = snacksParam.split(',').map(x => x.trim()).filter(Boolean);
-  if (list.length) {
-    const field = document.getElementById("messageField");
-    const bullets = list.map(s => `• ${s}`).join("\\n");
-    const existing = field.value ? "\\n\\n" + field.value : "";
-    field.value = `Snack Inquiry:\\n${bullets}${existing}`;
-  }
-}
-
-// ✅ Autofill Industry if ?industry= is present
-if (params.get("industry")) {
+if(params.get("industry")){
   document.getElementById("industryField").value = params.get("industry");
 }
 
-// ✅ Compose Subject & set Reply-To before submit (kept as-is)
+// ✅ Compose Subject & set Reply-To before submit
 document.getElementById('qcForm').addEventListener('submit', function () {
   const company  = (document.getElementById('companyField').value || '').trim();
   const industry = (document.getElementById('industryField').value || '').trim();
